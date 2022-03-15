@@ -1,0 +1,438 @@
+/* Цвет логотипа Tepli.ru статичный и при наведении курсора */
+.header a, .header a:hover {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;	
+}
+/*Логотип Tepli, ширина*/
+.logo_img {
+	width: 90%;
+}
+/*Логотип Deltalight*/
+.logo_del {
+	width: 100%;
+	margin-bottom: 3%
+}
+/*Все ссылки без подчёркивания*/
+a, a:hover {
+	text-decoration: none;
+}	
+/*Ссылка на дилера увеличивается при наведении*/
+.dealer_href:hover, .learn_more:hover {
+ 	transform: scale(1.1);
+}
+
+.dealer_href:hover, .learn_more:hover {
+ 	transform: scale(1.1);
+ 	font-weight: bold;	
+}
+
+.learn_more a:hover {
+ 	color: white;
+}
+/* Расстояние между буквами и размер шрифта логотипа Tepli.ru статичный и при наведении курсора */
+.header h1 {
+	letter-spacing: 1px;
+	font-size: 700%;
+}
+
+.header h2{
+	color: white;
+}
+
+.header p {
+	margin-top: -8%;
+}
+
+.header span {
+	color: #35c6f5;
+}
+
+/*.row>.phone {
+	margin-top: 58px;
+}*/
+
+.phone h4, h3 {
+	color: #7e898b;
+}
+
+.phone h3 {
+	margin-top: 10px;
+}
+
+.row>.dealer {
+	margin-top: 22px;
+}
+/*Цвет надписи "Официальный партнёр"*/
+.dealer h4 {
+	color: #7e898b;
+}
+
+.dealer a {
+	text-align: right;
+}
+
+/*Отступ контейнера с хедером*/
+.navbar-inverse {
+    padding: 1%;
+}
+
+/*Прижимает футер к нижней части экрана*/
+.wrapper {
+	min-height: 100%;
+}
+
+html, body {
+	height: 100%;
+}
+/*Цвет фона страницы*/
+body {
+	background: #222;
+}
+
+
+.margin-20 {
+	margin-top: 20%;
+}
+
+.margin-5 {
+	margin-top: 5%;
+}
+/*Оформление подписей на слайдах карусели*/
+.carousel-caption h2 {
+	color: white;
+	text-shadow: 5px 5px 5px #000;
+	margin-right: 30%;
+	margin-left: -30%
+}
+/*Цвет заголовков*/
+.wrapper h3, h4 {
+	color: #35c6f5;
+}
+
+.wrapper a h3 {
+	color: black;
+	background-color: #35c6f5;
+}
+
+/*Оформление заголовка "Новости на главногй странице в левом меню"*/
+.h2_header {
+	color: black;
+	background-color: #35c6f5;
+}
+
+/*Картинки на странице новостей трансформируются при наведении*/
+.image img {
+ -moz-transition: all 0.5s ease-out;
+ -o-transition: all 0.5s ease-out;
+ -webkit-transition: all 0.5s ease-out;
+ }
+ 
+.image img:hover{
+ -webkit-transform: scale(1.1);
+ -moz-transform: scale(1.1);
+ -o-transform: scale(1.1);
+ }
+/*Цвет ссылки "Узнать о компании больше"*/
+.col-lg-9 p a {
+	color: #35c6f5;
+}
+/*Заголовки на странице контактов (НОМЕРА ТЕЛЕФОНОВ, СТРАНИЦЫ В СОЦСЕТЯХ, АДРЕСА)*/
+.h3_cont {
+	color: white !important;
+}
+.phone_number {
+	font-size: 200%;	
+}
+/*Цвет иконок*/
+.fab {
+	color: white;
+}
+/*Цвет текста параграфов*/
+.wrapper p {
+	color: white;
+}
+/*Оформление пунктов меню*/
+li a {
+    color: #35c6f5;
+    font-size: 120%;
+    padding-bottom: 0px !important;
+ }
+
+li a:hover {
+    color: #000 !important;
+    font-size: 120%;
+    padding-bottom: 0px !important;   
+ }
+ /*Цвет ссылок на соцсети*/
+ .link {
+ 	color: #35c6f5;
+ }
+/*Кнопки для скачивания*/
+ .btn_pdf {
+ 	width: 90%; 
+ 	height: 80px;	
+ }
+
+ .btn_xls {
+ 	width: 90%; 
+ 	height: 80px;	
+ }
+ a.btn {
+ 	padding-top: 2.5%
+ }
+
+/*ФУТЕР*/
+footer {
+	color: #666;
+	background: #222;
+	padding: 17px 0 18px 0;
+	border-top: 1px solid black;
+	margin-top: 3%;
+}
+
+footer a {
+	color: #35c6f5;
+}
+
+footer a:hover {
+	color: white;
+	font-size: 1.1em;
+	font-weight: bold;
+
+}
+
+.copy p {
+	font-size: 160%;
+}
+
+.letter {
+	font-size: 160%;
+}
+
+/*Иконки социальных сетей*/
+.social i {		
+	color: #fff;	
+}
+
+.social i {
+ -moz-transition: all 0.2s ease-out;
+ -o-transition: all 0.2s ease-out;
+ -webkit-transition: all 0.2s ease-out;
+ }
+
+/*Увеличение картиок соцсетей при наведении*/
+.social i:hover{
+ -webkit-transform: scale(1.5);
+ -moz-transform: scale(1.5);
+ -o-transform: scale(1.5);
+ }
+
+	/*Настройки отображении для xs устройств*/
+	
+	@media (max-width: 767px) {
+	/*ХЕДЕР*/
+		/*Логотип Tepli по центру*/
+		.logo{
+			text-align: center;
+		}		
+		.logo_img {
+			width: 70%;
+			margin-bottom: -4%;
+		}
+		.logo_del {
+			width: 70%;
+		}			
+		/*Выравнивание среднего блока хедера*/
+		.row>.phone {
+			margin-top: 3px;
+		}
+		.phone-header h4, .header-number h3 {
+			margin-bottom: 0;			
+		}
+		.phone-header {
+			padding: 5px 0 0 10px;
+		}
+		.header-number {
+			padding: 0 0 0 5px;
+		}
+		.ska h3{
+			font-size: 151% !important;
+		}
+		.of-partner {
+			text-align: center;
+		}
+		.partner-name img{
+			text-align: center;
+			margin: 0 !important;
+		}
+		.dealer_href h5 {
+			text-align: center !important;
+		}
+		.header-dealer {
+			margin-top: 0 !important;
+		}
+	/*МЕНЮ НАВИГАЦИИ*/
+		/*Оформление кнопки "Меню" во всю ширину, белого цвета*/
+		.menu {
+			width: 100%;
+			color: white;
+			margin: 0 0 0 0;
+		}
+		.menu-text {
+			font-size: 140%;
+			letter-spacing: 2px;
+		}
+		.nav-pills>li {
+			float: none;
+		}
+		/*Оформление выпадающего меню*/
+		.navbar-collapse {
+			margin-bottom: 10px;
+		}
+		.h2_header {
+			margin-top: 0;
+		}
+		/*Выравнивание блока с "написать письмо"*/
+		.letter p {
+			margin-top: 7px;
+		}
+		/*Выравнивание блока с авторским значком*/
+		.copy {
+			text-align: center;
+		}
+		/*Оформление блока с соцсетями*/
+		.social {
+			height: 25px;
+			margin-bottom: 10px;
+		}
+		/*Надписи на слайдах*/
+		.carousel-caption h2 {
+			color: white;
+			text-shadow: 5px 5px 5px #000;
+			margin-right: 30%;
+			margin-left: -18%;
+		}
+		.carousel-caption {
+			padding-bottom: 0;
+		}
+		/*Маленькие карусели на главной странице по центру*/
+		.carousel-inner img{
+			margin-left: auto;
+			margin-right: auto;
+		}
+		/*Картинки на странице О КОМПАНИИ по центру, отступы справа*/
+		.image {
+			padding: 0;
+			text-align: center;
+		}
+		.image img {
+			margin-right: 1%;
+			-webkit-transform: scale(0.9);
+			-moz-transform: scale(0.9);
+			-o-transform: scale(0.9);
+		}		
+		.img-thumbnail {
+			margin-right: 2%;
+			width: 50%;
+		}
+	/*Страница КОНТАКТЫ*/
+		/*Отступы между строками со ссылками на соцсети*/
+		.social_xs>.row {
+			margin-bottom: 3%;			
+		}
+		/*Выравнивание по центру иконок соцсетей*/
+		.social_xs>.row>.col-xs-3 {
+			text-align: center;
+		}
+		.adress {
+			text-align: center;
+		}
+		.embed-responsive {
+			height: 120%
+		}
+		.no_padding {
+			padding: 0 !important;
+		}
+
+	}
+
+	@media (min-width: 768px) and (max-width: 991px) {
+	/*ХЕДЕР*/
+		/*Логотип Tepli по центру*/
+		.logo{
+			text-align: center;
+		}
+		.logo_img {
+			width: 50%;
+			margin-bottom: -10%;
+		}	
+		.logo_del {
+			width: 100%;
+		}
+		.phone {
+			padding-right: 22%;
+		}
+		.phone-header h4, .header-number h3 {
+			margin-top: 0;
+		}
+		.of-partner {
+			text-align: center;
+		}
+		.header-dealer {
+			margin-top: 58px !important;
+		}
+		/*Оформление кнопки "Меню" во всю ширину, белого цвета*/
+		.menu {
+			width: 100%;
+			color: white;
+			margin: 5px 0 0 0;
+		}
+		.menu-text {
+			font-size: 140%;
+			letter-spacing: 2px;
+		}
+		.nav-pills>li {
+		float: none;
+		}
+		/*Оформление выпадающего меню*/
+		.navbar-collapse {
+			margin-bottom: 10px;
+		}	
+	/*НОВОСТИ*/
+		/*Картинки к новостям*/
+		.img-thumbnail {
+			margin-right: 3%;			
+		}	
+	}
+
+	@media (min-width: 992px) and (max-width: 1199px) {
+	/*ХЕДЕР*/
+		/*Логотип Tepli по центру*/
+		.logo{
+			text-align: center;
+		}
+		.logo_img {
+			width: 90%;			
+		}	
+		.logo_del {
+			width: 100%;
+		}
+		.phone {
+			margin-top: 0;
+		}
+		.phone-header h4, .header-number h3 {
+			margin-top: 0;
+		}
+		.of-partner {
+			text-align: center;
+		}
+		.header-dealer{
+			margin-top: 2% !important;
+		}
+		li a {
+			font-size: 116%;
+		}
+		
+	}
+
