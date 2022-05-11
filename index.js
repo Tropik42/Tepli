@@ -1,6 +1,5 @@
 const express = require('express')
-const mongoose = require('mongoose')
-//Path нужен, чтобы статик нормально работал
+const pool = require("./db")
 const path = require('path')
 const exphbs = require('express-handlebars')
 const todoRoutes = require('./routes/mainroute')
@@ -8,9 +7,18 @@ const todoRoutes = require('./routes/mainroute')
 const PORT = process.env.PORT || 3000
 
 const app = express()
+app.use(express.json())
 const hbs = exphbs.create({
 	defaultLayout: 'main',
 	extname: 'hbs'
+})
+
+app.post("/1", async(req, res) =>{
+	try {
+		console.log(req.body);
+	} catch (error) {
+		console.log(error.massage);
+	}
 })
 
 //Движок для рендеринга страниц, hbs - название

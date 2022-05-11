@@ -41,5 +41,12 @@ router.get('/contacts', (req, res) => {
 	})
 })
 
+router.get('/admin', (req, res) => {
+	res.render('admin', {
+		title: 'Админ',
+		isAdmin: true
+	})
+})
+
 //Экспортируем этот файл наружу
 module.exports = router
