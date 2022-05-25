@@ -4,14 +4,14 @@ const About = () => {
   return (
     <div>
 
-      <div class="wrapper">
-        <div class="container">
+      <div className="wrapper">
+        <div className="container">
 
-          <div class="col-lg-12">
+          <div className="col-lg-12">
 
-            <h2 class="h2_header">О КОМПАНИИ</h2>
+            <h2 className="h2_header">О КОМПАНИИ</h2>
             <hr />
-            <p class="text-justify">1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada elit in sem facilisis elementum. Pellentesque lorem tellus, dictum nec bibendum ac, lacinia in eros. Fusce vitae euismod ipsum, a viverra nibh. Sed viverra turpis non blandit condimentum. Nulla blandit arcu in ligula imperdiet tincidunt. Suspendisse ut vestibulum neque. Nulla sed ex eu leo suscipit tristique. Donec ac rutrum lectus. Vivamus quis erat id elit ultrices malesuada.
+            <p className="text-justify">1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada elit in sem facilisis elementum. Pellentesque lorem tellus, dictum nec bibendum ac, lacinia in eros. Fusce vitae euismod ipsum, a viverra nibh. Sed viverra turpis non blandit condimentum. Nulla blandit arcu in ligula imperdiet tincidunt. Suspendisse ut vestibulum neque. Nulla sed ex eu leo suscipit tristique. Donec ac rutrum lectus. Vivamus quis erat id elit ultrices malesuada.
 
               Etiam quis tincidunt massa, id euismod velit. Morbi rutrum rutrum augue ut vestibulum. Proin venenatis risus turpis, tempus tincidunt odio auctor vestibulum. Nam laoreet scelerisque ipsum, vel volutpat lectus tristique non. Vivamus ac suscipit nisl. Mauris at semper libero. Praesent auctor, leo a malesuada consectetur, tellus sem accumsan quam, at sollicitudin diam est quis ligula. In mattis lectus sit amet sagittis congue.
 
@@ -21,42 +21,42 @@ const About = () => {
 
               Sed gravida mi mi, ut convallis orci mollis sit amet. Mauris a maximus velit. Duis facilisis ultrices neque, in fermentum eros posuere ac. Quisque augue velit, aliquam at ex ac, tincidunt aliquam est. Cras leo ex, maximus vitae neque vitae, bibendum tincidunt tellus. Fusce efficitur faucibus suscipit. Suspendisse sit amet erat congue, dapibus neque et, vulputate mi. Mauris nulla nibh, tincidunt id velit quis, euismod pretium orci. Nullam nulla diam, euismod et ligula ac, gravida efficitur lectus. Aenean quis ligula eget nunc hendrerit pulvinar. Cras sed neque mollis, elementum dolor non, vulputate lacus. Proin iaculis eleifend lorem in vehicula. Nullam sed nisl lectus.</p>
 
-            <div class="margin-5"></div>
+            <div className="margin-5"></div>
 
 
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 image">
+            <div className="row">
+              <div className="col-lg-3 col-md-3 col-sm-4 col-xs-6 image">
                 <img src="img/lumb5.jpg" alt="" />
               </div>
 
-              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 image">
+              <div className="col-lg-3 col-md-3 col-sm-4 col-xs-6 image">
                 <img src="img/lumb4.jpg" alt="" />
               </div>
 
-              <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs image">
+              <div className="col-lg-3 col-md-3 col-sm-4 hidden-xs image">
                 <img src="img/lumb5.jpg" alt="" />
               </div>
 
-              <div class="col-lg-3 col-md-3 hidden-sm hidden-xs image">
+              <div className="col-lg-3 col-md-3 hidden-sm hidden-xs image">
                 <img src="img/lumb4.jpg" alt="" />
               </div>
             </div>
 
-            <div class="margin-5"></div>
+            <div className="margin-5"></div>
 
-            <div class="row hidden-lg hidden-md hidden-sm">
-              <div class="col-lg-3 col-xs-6 image">
+            <div className="row hidden-lg hidden-md hidden-sm">
+              <div className="col-lg-3 col-xs-6 image">
                 <img src="img/lumb3.jpg" alt="" />
               </div>
 
-              <div class="col-lg-3 col-xs-6 image">
+              <div className="col-lg-3 col-xs-6 image">
                 <img src="img/lumb1.jpg" alt="" />
               </div>
             </div>
 
-            <div class="margin-5"></div>
+            <div className="margin-5"></div>
 
-            <p class="text-justify">2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada elit in sem facilisis elementum. Pellentesque lorem tellus, dictum nec bibendum ac, lacinia in eros. Fusce vitae euismod ipsum, a viverra nibh. Sed viverra turpis non blandit condimentum. Nulla blandit arcu in ligula imperdiet tincidunt. Suspendisse ut vestibulum neque. Nulla sed ex eu leo suscipit tristique. Donec ac rutrum lectus. Vivamus quis erat id elit ultrices malesuada.
+            <p className="text-justify">2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada elit in sem facilisis elementum. Pellentesque lorem tellus, dictum nec bibendum ac, lacinia in eros. Fusce vitae euismod ipsum, a viverra nibh. Sed viverra turpis non blandit condimentum. Nulla blandit arcu in ligula imperdiet tincidunt. Suspendisse ut vestibulum neque. Nulla sed ex eu leo suscipit tristique. Donec ac rutrum lectus. Vivamus quis erat id elit ultrices malesuada.
 
               Etiam quis tincidunt massa, id euismod velit. Morbi rutrum rutrum augue ut vestibulum. Proin venenatis risus turpis, tempus tincidunt odio auctor vestibulum. Nam laoreet scelerisque ipsum, vel volutpat lectus tristique non. Vivamus ac suscipit nisl. Mauris at semper libero. Praesent auctor, leo a malesuada consectetur, tellus sem accumsan quam, at sollicitudin diam est quis ligula. In mattis lectus sit amet sagittis congue.
 
