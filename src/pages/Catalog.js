@@ -6,7 +6,7 @@ const Catalog = () => {
             <div className="col-lg-12">
                 <h2 className="h2_header">КАТАЛОГ ПРОДУКЦИИ</h2>
                 <hr />
-                <p className ="h3">Каталог продукции находится на сайте нашего партнёра - Deltalight </p>
+                <h4>Каталог продукции находится на сайте нашего партнёра - Deltalight </h4>
                 <div className="margin-5"></div>
                 <div className="col-lg-12 col-xs-12 btn">
                     <a  className="btn btn-primary btn-lg btn_pdf"
@@ -20,5 +20,3 @@ const Catalog = () => {
     )
 }
 export { Catalog }
-
-

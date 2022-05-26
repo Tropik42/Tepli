@@ -16,7 +16,7 @@ const Contacts = () => {
                         <div className="col-lg-12 cont_phone">
                             <h3 className="h3_cont text-center">НОМЕРА ТЕЛЕФОНОВ</h3>
                             <br />
-                            <div className="col-lg-6 teFxt-center">
+                            <div className="col-lg-6 text-center">
                                 <p className="phone_number">(499) 128 94 91</p>
                             </div>
                             <div className="col-lg-6 text-center">

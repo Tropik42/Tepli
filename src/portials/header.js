@@ -5,7 +5,7 @@ const Header = () => {
     return (
 
         <div className="container-fluid row">
-            <nav className="navbar navbar-inverse" />
+            <nav className="navbar navbar-inverse">
             <div className="container">
                 <div className="navbar-header header">
                     <div className="container row">
@@ -57,8 +57,8 @@ const Header = () => {
                     </div>
                 </div>
                 
+            <div id="navbarCollapse" class="collapse navbar-collapse"></div>
                 <ul class="nav nav-pills">
-                
                 
                 <li><Link to="/">Главная</Link></li>
                 <li><Link to="/about">О компании</Link></li>
@@ -66,13 +66,13 @@ const Header = () => {
                 <li><Link to="/catalog">Каталог продукции</Link></li>
                 <li><Link to="/price">Скачать прайс-лист</Link></li>
                 <li><Link to="/contacts">Контакты</Link></li>
-
+            
 
                 </ul>
             
             
             </div>
-
+            </nav>
         </div>
 
     )
