@@ -1,4 +1,4 @@
-const sequelize = require('../db') // СОЗДАЕТ ТАБЛИЦЫ
+const sequelize = require('../db')
 const {DataTypes} = require('sequelize')
 
 const User = sequelize.define('user', {
@@ -8,9 +8,9 @@ const User = sequelize.define('user', {
 
 const News = sequelize.define('news', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    body: {type: DataTypes.TEXT, unique: true, allowNull: false},
+    body: {type: DataTypes.TEXT, unique: true},
     heading: {type: DataTypes.STRING, unique: true, allowNull: false},
-    img: {type: DataTypes.STRING, allowNull: true},
+    img: {type: DataTypes.STRING},
     news_date: {type: DataTypes.DATE, allowNull: false}
 })
 
