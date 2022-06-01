@@ -1,4 +1,4 @@
-const ApiError = require('../error/ApiError')
+const ApiError = require('../error/apiError')
 class UserController {
     
     async login(req, res) {

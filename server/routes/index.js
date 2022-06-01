@@ -6,8 +6,6 @@ const newsRouter = require('./newsRouter')
 router.use('/user', userRouter)
 router.use('/news', newsRouter)
 
-
-
 // router.use('/', (req, res) => {
 // 	res.render('index', {
 // 		title: 'Tepli.ru',
@@ -53,5 +51,5 @@ router.use('/news', newsRouter)
 // 	})
 // })
 
-
 module.exports = router
+
