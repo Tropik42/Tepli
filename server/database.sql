@@ -1,12 +1,12 @@
 CREATE TABLE users(
-    id SERIAL PRIMARY KEY,
-    isAdmin BOOLEAN NOT NULL DEFAULT 0
+   id              SERIAL PRIMARY KEY
+  ,isAdmin         BOOLEAN NOT NULL DEFAULT 0 
 );
 
+
 CREATE TABLE news(
-  id SERIAL PRIMARY KEY,
-  title VARCHAR(255),
-  body TEXT,
-  news_date DATE,
-  img VARCHAR(255)
+   news_id         SERIAL PRIMARY KEY
+  ,title           TEXT NOT NULL
+  ,body            TEXT NOT NULL
+  ,create_datetime TIMESTAMPTZ DEFAULT NOW()
 );

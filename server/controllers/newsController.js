@@ -1,4 +1,3 @@
-const {News} = require('../models/models')
 const ApiError = require('../error/apiError')
 const uuid = require('uuid')
 const path = require('path')
