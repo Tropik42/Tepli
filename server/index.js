@@ -1,45 +1,31 @@
-// const express = require('express')
-// const mongoose = require('mongoose')
-// //Path нужен, чтобы статик нормально работал
-// const path = require('path')
-// const exphbs = require('express-handlebars')
-// const todoRoutes = require('./routes/mainroute')
+require('dotenv').config()
+const express = require('express')
+const sequelize = require('./db')
+const models = require('./models/models')
+const cors = require('cors')
+const router = require('./routes/index')
+const fileUpload = require('express-fileupload')
+const errorHandler = require('./middleware/errorHandlingMiddleware')
+const path = require('path')
 
-// const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 
-// const app = express()
-// const hbs = exphbs.create({
-// 	defaultLayout: 'main',
-// 	extname: 'hbs'
-// })
+const app = express()
+app.use(cors())
+app.use(express.json())
+app.use(express.static(path.resolve(__dirname, 'static_news')))
+app.use(fileUpload({}))
+app.use('/api/v1', router)
 
-// //Движок для рендеринга страниц, hbs - название
-// app.engine('hbs', hbs.engine)
-// //Указываем, что по умолчанию используем handlebars, hbs должна совпадать со строчкой выше
-// app.set('view engine', 'hbs')
-// //Регистрируем папку, где хранятся все виды ключом views (1), views - указываем явно, откуда берутся страницы
-// app.set('views', 'views')
+app.use(errorHandler)
 
-// //Нужно, чтобы нормально работали статические файлы
-// app.use(express.static(path.join(__dirname, 'public')))
+const start = async () => {
+    try {
+        await sequelize.authenticate()
+        await sequelize.sync()
+        app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+    } catch (e) {
 
-
-// app.use(todoRoutes)
-
-// async function start() {
-// 	try {
-// 		// await mongoose.connect(
-// 		// 	'mongodb+srv://vladimir:Ar92664218@cluster0-nkozg.mongodb.net/todos', 
-// 		// 	{
-// 		// 	useNewUrlParser: true,
-// 		// 	useFindAnyModify: false
-// 		// })
-// 		app.listen(PORT, () => {
-// 		console.log('Server has been started...')
-// 		})
-// 	} catch (e) {
-// 		console.log(e)
-// 	}
-// }
-
-// start() 
+    }
+}
+start()

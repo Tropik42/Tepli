@@ -57,8 +57,8 @@ const Header = () => {
                     </div>
                 </div>
                 
-            <div id="navbarCollapse" class="collapse navbar-collapse"></div>
-                <ul class="nav nav-pills">
+            <div id="navbarCollapse" className="collapse navbar-collapse"></div>
+                <ul className="nav nav-pills">
                 
                 <li><Link to="/">Главная</Link></li>
                 <li><Link to="/about">О компании</Link></li>
