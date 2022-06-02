@@ -1,6 +1,6 @@
 CREATE TABLE users(
    id              SERIAL PRIMARY KEY
-  ,isAdmin         BOOLEAN NOT NULL DEFAULT 0 
+  ,isAdmin         BOOLEAN NOT NULL DEFAULT false
 );
 
 
