@@ -9,7 +9,7 @@ class ApiError extends Error {
         return new ApiError(404, message)
     }
 
-    static INTERMAL(message) {
+    static INTERNAL(message) {
         return new ApiError(500, message)
     }
 

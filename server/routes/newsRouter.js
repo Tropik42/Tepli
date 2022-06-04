@@ -2,7 +2,7 @@ const Router = require('express')
 const router = Router()
 const {
     getAllNews,
-    getSingleNews,
+    getOneNews,
     createNews,
     deleteNews,
     updateNews,
@@ -10,7 +10,7 @@ const {
 
 router.get('/', getAllNews)
 
-router.get('/:id', getSingleNews)
+router.get('/:id', getOneNews)
 
 router.post('/', createNews)
 

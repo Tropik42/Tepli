@@ -1,8 +1,15 @@
 const Router = require('express')
 const router = Router()
-const userController = require('../controllers/userController')
+const {
+    cryptUserPassword,
+    getAllUsers,
+    userLogin,
+    userAuth,
+} = require('../controllers/userController')
 
-router.post('/login', userController.login)
-router.get('/auth', userController.check)
+router.put('/crypt', cryptUserPassword)
+router.get('/', getAllUsers)
+router.post('/login', userLogin)
+router.get('/auth', userAuth)
 
 module.exports = router
