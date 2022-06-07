@@ -1,15 +1,14 @@
 const Router = require('express')
 const router = Router()
+const authMiddleware = require('../middleware/authMiddleware')
 const {
-    cryptUserPassword,
+    userCheck,
     getAllUsers,
     userLogin,
-    userAuth,
 } = require('../controllers/userController')
 
-router.put('/crypt', cryptUserPassword)
 router.get('/', getAllUsers)
 router.post('/login', userLogin)
-router.get('/auth', userAuth)
+router.get('/auth', authMiddleware, userCheck)
 
 module.exports = router

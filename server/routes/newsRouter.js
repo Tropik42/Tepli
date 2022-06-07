@@ -1,5 +1,6 @@
 const Router = require('express')
 const router = Router()
+const checkRole = require('../middleware/checkRoleMiddleware')
 const {
     getAllNews,
     getOneNews,
@@ -12,7 +13,7 @@ router.get('/', getAllNews)
 
 router.get('/:id', getOneNews)
 
-router.post('/', createNews)
+router.post('/', checkRole(true), createNews)
 
 router.delete('/:id', deleteNews)
 

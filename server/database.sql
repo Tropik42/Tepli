@@ -12,3 +12,7 @@ CREATE TABLE news(
   ,body            TEXT NOT NULL
   ,create_datetime TIMESTAMPTZ DEFAULT NOW()
 );
+
+--  чтоб плодить юзеров
+INSERT INTO users (user_name, user_password) VALUES ('user', 'userpassword');
+INSERT INTO users (user_name, user_password, isAdmin) VALUES ('admin', 'adminpassword', true);
