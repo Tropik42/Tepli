@@ -8,9 +8,7 @@ import {Contacts} from './pages/Contacts'
 import {Index} from './pages/Index'
 import {News} from './pages/News'
 import {Price} from './pages/Price'
-
-
-
+import {Auth} from "./pages/Auth";
 
 
 function App() {
@@ -23,6 +21,7 @@ function App() {
          <Route path="/catalog" element={<Catalog/>} />
          <Route path="/price" element={<Price/>} />
          <Route path="/contacts" element={<Contacts/>} />
+         <Route path="/auth" element={<Auth/>} />
         </Routes>
     </div>
     
