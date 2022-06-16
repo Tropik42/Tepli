@@ -1,35 +1,26 @@
 import React from 'react';
-import {Container, Form} from "react-bootstrap";
-import Button from "react-bootstrap/Button"
+
 
 const Auth = () => {
 
     return (
-        <Container
-            className="d-flex justify-content-center align-items-center"
-            style={{height: window.innerHeight - 54}}
-        >
-            <div style={{width: 600}} className="p-5">
-                <h2> Авторизация </h2>
-                <Form className="d-flex flex-column">
-                    <Form.Control
-                        className="mt-3"
-                        placeholder="Введите ваш email..."
+        <div className="container">
+         <form className="col-lg-8 col-md-10" >
+            <div className="mb-3">
+                <h2>Логин</h2>
+                <input type="text" className="form-control input-group-text margin-3"  />
 
-                    />
-                    <Form.Control
-                        className="mt-3"
-                        placeholder="Введите ваш пароль..."
-
-                    />
-
-                        <Button className="btn btn-primary btn-lg btn_xls">
-                        Войти
-                        </Button>
-
-                </Form>
             </div>
-        </Container>
+            <div className="mt-3">
+                <h2 style={{color: "white"}}>Пароль</h2>
+                <input type="password" className="form-control mt-5"  />
+            </div>
+            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button  className=" btn btn-primary  margin-5 btn-lg btn_justify-content-md-end ">Войти</button>
+            </div>
+
+        </form>
+        </div>
     );
 };
 
