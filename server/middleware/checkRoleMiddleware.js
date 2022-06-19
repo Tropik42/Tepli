@@ -11,7 +11,7 @@ module.exports = function(isadmin) {
             const verify = jwt.verify(token, process.env.SECRET_KEY)
             req.user = verify.user
             if (req.user.isadmin === !isadmin) {
-                return res.status(401).json("Доступ запрещён")
+                return res.status(403).json("Доступ запрещён")
             }
             next()
         } catch (err) {
