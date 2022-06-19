@@ -39,7 +39,7 @@ const userLogin = async (req, res) => {
 
 const userCheck = async(req, res, next) => {
     const token = jwtGenerator(req.user.id, req.user.username, req.user.isadmin)
-    return res.json({ token }) 
+    return res.json({token}) 
 
 }
 
