@@ -27,7 +27,7 @@ const getOneNews = async (req, res) => {
 
 const createNews = async (req, res) => {
     try {
-        const {title,body} = req.body
+        const {title, body} = req.body
         const createNews = await pool.query(
           "INSERT INTO news (title, body) VALUES($1, $2) RETURNING *",[
             title, body
@@ -54,7 +54,7 @@ const deleteNews = async (req, res) => {
 const updateNews = async (req, res) => {
     try {
         const {id} = req.params
-        const {title,body} = req.body
+        const {title, body} = req.body
         const updateNews = await pool.query(
           "UPDATE news SET title = $1, body = $2 WHERE news_id = $3",[
                 title, body, id
