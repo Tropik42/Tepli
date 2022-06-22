@@ -7,7 +7,7 @@ const jwtGenerator = require('../utils/jwtGenerator')
 const getAllUsers = async (req, res) => {
     try {
         const allUsers = await pool.query(
-            "SELECT * FROM users ORDER BY user_id"
+            `SELECT * FROM users ORDER BY user_id`
             )
         res.json(allUsers.rows)
     } catch (err) {

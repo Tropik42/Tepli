@@ -5,7 +5,6 @@ const {
     getAllNews,
     getOneNews,
     createNews,
-    deleteNews,
     updateNews,
 } = require('../controllers/newsController')
 
@@ -15,8 +14,6 @@ router.get('/:id', getOneNews)
 
 router.post('/', checkRole(true), createNews)
 
-router.delete('/:id', deleteNews)
-
-router.put('/:id', updateNews)
+router.put('/:id', checkRole(true), updateNews)
 
 module.exports = router
