@@ -17,7 +17,7 @@ import {Price} from '../pages/Price'
 const Navbar = () => {
     return (
         <>
-            <div className="navbar navbar-inverse"   >
+            <div className="hello" >
                 <div className="container">
                     <nav >
                         <ul className="nav nav-pills">

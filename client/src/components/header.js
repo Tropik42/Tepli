@@ -1,12 +1,13 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import {Navbar} from "./navbar";
 
 const Header = () => {
     return (
 
         <div className="container">
 
-            <div className="container">
+            <div >
                 <div className="navbar-header header">
                     <div className="container row">
                         <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 logo">
@@ -54,11 +55,13 @@ const Header = () => {
                         <button type="button" data-target="#navbarCollapse" data-toggle="collapse" className="navbar-toggle menu">
                             <i className="fas fa-bars fa-2x pull-left"></i><div className="menu-text">Меню сайта</div>
                         </button>
+
                     </div>
                 </div>
             </div>
-        </div>
+            <Navbar/>
 
+        </div>
     )
 }
 export { Header }
