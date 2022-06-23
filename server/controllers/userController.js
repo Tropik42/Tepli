@@ -3,12 +3,13 @@ const ApiError = require('../error/ApiError');
 const pool = require('../db');
 require('dotenv').config();
 const jwtGenerator = require('../utils/jwtGenerator');
+const queries = require('../queries/users')
 
 const getAllUsers = async (req, res) => {
   try {
     const allUsers = await pool.query(
-      'SELECT * FROM users ORDER BY user_id',
-    );
+      queries.getAllUsers,
+      );
     res.json(allUsers.rows);
   } catch (err) {
     console.error(err.message);
@@ -18,17 +19,9 @@ const getAllUsers = async (req, res) => {
 const userLogin = async (req, res) => {
   const {username, password} = req.body;
   try {
-    const user = await pool.query(
-      `SELECT 
-                 user_id       AS "userId"
-                ,is_admin      AS "isAdmin"
-                ,user_password AS "userPassword"
-            FROM 
-                users 
-            WHERE 
-                user_name = $1`,
-      [username],
-    );
+    const user = await pool.query(queries.userLogin,[
+      username
+    ]);
     if (user.rows.length === 0) {
       return res.status(401).json('Пользователь не найден');
     }
@@ -55,3 +48,4 @@ module.exports = {
   getAllUsers,
   userLogin,
 };
+
