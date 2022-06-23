@@ -2,7 +2,7 @@ import React from "react"
 
 const About = () => {
   return (
-    <div>
+
 
       <div className="wrapper">
         <div className="container">
@@ -70,7 +70,6 @@ const About = () => {
         </div>
       </div>
 
-    </div>
-  )
+      )
 }
 export { About }

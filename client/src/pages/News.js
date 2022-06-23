@@ -6,8 +6,8 @@ const News = () => {
 
 
 
-<div className="wrapper">
-  <div className="container">
+<div className="container">
+  <div className="wrapper">
 
     <div className="col-lg-12">
 
