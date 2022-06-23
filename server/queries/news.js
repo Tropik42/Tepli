@@ -1,7 +1,11 @@
 module.exports = {
   getAllNews: `
     SELECT
-      *
+      news_id          AS "newsId"
+      ,create_datetime AS "newsDate"
+      ,title
+      ,body
+      ,state
     FROM 
       news 
     ORDER BY 
@@ -10,7 +14,11 @@ module.exports = {
 
   getOneNews: `
     SELECT 
-      * 
+      news_id          AS "newsId"
+      ,create_datetime AS "newsDate"
+      ,title
+      ,body
+      ,state
     FROM 
       news 
     WHERE 
@@ -22,7 +30,11 @@ module.exports = {
       news (title, body)
     VALUES ($1, $2)
     RETURNING 
-      *
+      news_id          AS "newsId"
+      ,create_datetime AS "newsDate"
+      ,title
+      ,body
+      ,state
   `,
 
   updateNews: `
