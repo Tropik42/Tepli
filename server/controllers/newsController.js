@@ -1,10 +1,11 @@
 const ApiError = require('../error/apiError');
 const pool = require('../db');
+const queries = require('../queries/news.js')
 
 const getAllNews = async (req, res) => {
   try {
     const allNews = await pool.query(
-      'SELECT * FROM news ORDER BY news_id',
+      queries.getAllNews,
     );
     res.json(allNews.rows);
   } catch (err) {
@@ -15,7 +16,7 @@ const getAllNews = async (req, res) => {
 const getOneNews = async (req, res) => {
   try {
     const {id} = req.params;
-    const singleNews = await pool.query('SELECT * FROM news WHERE news_id = $1', [
+    const singleNews = await pool.query(queries.getOneNews, [
       id,
     ]);
     res.json(singleNews.rows[0]);
@@ -27,7 +28,7 @@ const getOneNews = async (req, res) => {
 const createNews = async (req, res) => {
   try {
     const {title, body} = req.body;
-    const createNews = await pool.query('INSERT INTO news (title, body) VALUES($1, $2) RETURNING *', [
+    const createNews = await pool.query(queries.createNews, [
       title, body,
     ]);
     res.json(createNews.rows);
@@ -40,7 +41,7 @@ const updateNews = async (req, res) => {
   try {
     const {id} = req.params;
     const {title, body} = req.body;
-    await pool.query('UPDATE news SET title = $1, body = $2 WHERE news_id = $3', [
+    await pool.query(queries.updateNews, [
       title, body, id,
     ]);
     res.json(`Новость №${id} была обновлена`);
