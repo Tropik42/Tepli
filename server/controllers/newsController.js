@@ -1,49 +1,38 @@
 const ApiError = require('../error/apiError');
 const pool = require('../db');
+const newsService = require('../queries/news.js')
 
 const getAllNews = async (req, res) => {
-  try {
-    const allNews = await pool.query(
-      'SELECT * FROM news ORDER BY news_id',
-    );
-    res.json(allNews.rows);
-  } catch (err) {
-    console.error(err.message);
-  }
-};
+    const allNews = await newsService.getAllNews()
+    res.status(200).json(allNews)
+}
+
 
 const getOneNews = async (req, res) => {
-  try {
-    const {id} = req.params;
-    const singleNews = await pool.query('SELECT * FROM news WHERE news_id = $1', [
-      id,
-    ]);
-    res.json(singleNews.rows[0]);
-  } catch (err) {
-    console.error(err.message);
-  }
-};
+  const {id} = req.params;
+  const oneNews = await newsService.getOneNews(id)
+  res.status(200).json(oneNews)
+}
+
 
 const createNews = async (req, res) => {
-  try {
     const {title, body} = req.body;
-    const createNews = await pool.query('INSERT INTO news (title, body) VALUES($1, $2) RETURNING *', [
-      title, body,
-    ]);
-    res.json(createNews.rows);
-  } catch (err) {
-    console.error(err.message);
+    const news = await newsService.createNews({
+      title,
+      body,
+    })
+    res.status(201).json(news)
   }
-};
 
 const updateNews = async (req, res) => {
   try {
-    const {id} = req.params;
     const {title, body} = req.body;
-    await pool.query('UPDATE news SET title = $1, body = $2 WHERE news_id = $3', [
-      title, body, id,
-    ]);
-    res.json(`Новость №${id} была обновлена`);
+    const updatedNews = await newsService.updateNews({
+      title,
+      body,
+      id: req.params.id,
+    })
+    res.status(201).json(updatedNews)
   } catch (err) {
     console.error(err.message);
   }
