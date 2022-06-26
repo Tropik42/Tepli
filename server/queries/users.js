@@ -1,4 +1,5 @@
 module.exports = {
+  /* eslint-disable */
   getAllUsers: `
     SELECT
       user_id  AS "userId"
@@ -20,4 +21,5 @@ module.exports = {
     WHERE 
       user_name = $1
   `,
+  /* eslint-enable */
 };
