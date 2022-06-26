@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import {Form, Container, Card, Button} from 'react-bootstrap'
 import { login } from './../http/userApi';
 
-const logIn = async () => {
-    const response = await login()
-    console.log(response)
-}
+
 
 const Auth = () => {
+  const signIn = async () => {
+    
+   let data = await login(username, password,)
+    data ? window.alert('Вход успешно выполнен', console.log(data)) : console.log(data)
+}
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
 
@@ -28,7 +30,7 @@ const Auth = () => {
                 onChange={e => setPassword(e.target.value)}
                 />
                 <Button
-                  onClick={logIn}
+                  onClick={signIn}
                 >
                     Войти
                 </Button>
