@@ -57,19 +57,23 @@ const News = () => {
           <button className="btn btn-success float">Add</button>
         </form>
 
+
+        {allnews.slice(0).reverse().map(news => (
         <div>
           <div className="wrapper">
             <div className="container">
               <div className="col-lg-12">
                 <div className="row news">
-                  <h2 className="h2_header">ЗАГОЛОВОК</h2>
+
+                      <h2 className="h2_header">{news.title}</h2>
+
                   <hr/>
                   <div className="col-lg-3 col-md-2 text-center">
                     <img className="img-thumbnail img-responsive pull-left" src="img/lumb2.jpg"
                          alt="Безумный Макс"/>
                   </div>
                   <div className="col-lg-9 col-md-10">
-                    <p className="text-justify">НОВОСТЬ</p>
+                        <p className="text-justify">{news.body}</p>
                   </div>
                   <div className="col-lg-12">
                     <a href="" className="btn btn-lg btn-primary pull-right">Подробнее</a>
@@ -81,7 +85,7 @@ const News = () => {
           </div>
 
         </div>
-
+        ))}
       </React.Fragment>
   )
 }
