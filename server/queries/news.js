@@ -1,4 +1,5 @@
 module.exports = {
+  /* eslint-disable */
   getAllNews: `
     SELECT
       news_id          AS "newsId"
@@ -46,4 +47,5 @@ module.exports = {
     WHERE 
       news_id = $3
   `,
-};
+  /* eslint-enable */
+}; 

@@ -10,8 +10,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <Header/>
-    <Footer />
     <App />
+    <Footer />
     </BrowserRouter>
   </React.StrictMode>
 );
