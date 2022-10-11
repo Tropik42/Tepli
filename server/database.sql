@@ -15,6 +15,5 @@ CREATE TABLE news(
   ,state           TEXT DEFAULT 'enabled'
 );
 
---  чтоб плодить юзеров
 INSERT INTO users (user_name, user_password) VALUES ('user', 'userpassword');
 INSERT INTO users (user_name, user_password, is_admin) VALUES ('admin', 'adminpassword', true);

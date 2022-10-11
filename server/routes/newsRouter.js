@@ -13,7 +13,7 @@ router.get('/', getAllNews);
 
 router.get('/:id', getOneNews);
 
-router.post('/', checkRole(true), createNews);
+router.post('/', createNews);
 
 router.put('/:id', checkRole(true), updateNews);
 
