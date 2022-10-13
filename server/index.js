@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const router = require('./routes/index');
-const errorHandler = require('./middleware/errorHandlingMiddleware');
+const errorHandler = require('./middleware/ErrorHandlingMiddleware');
 
 const app = express();
 app.use(cors());
@@ -18,3 +18,4 @@ try {
 } catch (error) {
   console.log(error);
 }
+

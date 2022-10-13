@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt');
-const ApiError = require('../error/ApiError');
+const ApiError = require('../error/ApiError.js');
 const pool = require('../db');
 require('dotenv').config();
 const jwtGenerator = require('../utils/jwtGenerator');
-const queries = require('../queries/users')
+const queries = require('../queries/users');
 
 const getAllUsers = async (req, res) => {
   try {
@@ -11,6 +11,18 @@ const getAllUsers = async (req, res) => {
       queries.getAllUsers,
       );
     res.json(allUsers.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
+const createUser = async (req, res) => {
+  try {
+    const {userName, userPassword} = req.body;
+    const createUser = await pool.query(queries.createUser, [
+      userName, userPassword,
+    ]);
+    res.json(createUser.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -47,5 +59,6 @@ module.exports = {
   userCheck,
   getAllUsers,
   userLogin,
+  createUser,
 };
 

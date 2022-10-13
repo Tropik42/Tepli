@@ -22,4 +22,14 @@ module.exports = {
       user_name = $1
   `,
   /* eslint-enable */
+  createUser: `
+    INSERT INTO 
+      user (user_name,user_password)
+    VALUES ($1, $2 )
+    RETURNING 
+      user_name AS "userName"
+      ,user_password AS "userPassword"
+      ,user_id AS "userId"
+      ,is_admin
+  `,
 };
