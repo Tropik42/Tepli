@@ -24,7 +24,7 @@ module.exports = {
   /* eslint-enable */
   createUser: `
     INSERT INTO 
-      user (user_name,user_password)
+     users (user_name,user_password)
     VALUES ($1, $2 )
     RETURNING 
       user_name AS "userName"
