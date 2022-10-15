@@ -1,3 +1,4 @@
+
 const Router = require('express');
 
 const router = Router();
@@ -6,12 +7,12 @@ const {
   userCheck,
   getAllUsers,
   userLogin,
-  createUser
+  registration,
 } = require('../controllers/userController');
 
 router.get('/', getAllUsers);
 router.post('/login', userLogin);
 router.get('/auth', authMiddleware, userCheck);
-router.post('/', createUser);
+router.get('/auth', registration);
 
 module.exports = router;
