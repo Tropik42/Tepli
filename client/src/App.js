@@ -3,10 +3,12 @@ import {Route, Routes, Link} from 'react-router-dom';
 import {About} from './pages/About'	
 import {Catalog} from './pages/Catalog'	
 import {Contacts} from './pages/Contacts'	
-import {Index} from './pages/Index'	
+import {Index} from './pages/Index'
 import {News} from './pages/News'	
 import {Price} from './pages/Price'	
 import {Auth} from './pages/Auth'
+
+import './App.css'
 
 function App() {	
   return (	
