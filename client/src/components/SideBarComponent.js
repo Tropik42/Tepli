@@ -18,7 +18,11 @@ const SideBarComponent = () => {
             {(allnews.slice(0).reverse().map(news => (
                         <div className="wrapper">
                             <a href="#"><h4>{news.title}</h4></a>
-                            <p id="dateSpan">{(news.newsDate).slice(0, 10)}</p>
+                            <p id="dateSpan">{`${
+                                new Date(news.newsDate).getDate()}.${
+                                new Date(news.newsDate).getMonth()}.${
+                                new Date(news.newsDate).getFullYear()}`
+                            }</p>
                             <p className="text-justify">{news.body}</p>
                             <hr/>
                         </div>
