@@ -34,5 +34,14 @@ module.exports = {
       ,user_id AS "userId"
       ,is_admin
   `,
-/* eslint-enable */
+    userChecked: `
+    SELECT 
+      user_id        AS "userId"
+      ,is_admin      AS "isAdmin"
+      ,user_password AS "userPassword"
+    FROM 
+      users 
+    WHERE 
+      user_name = $1
+  `,
 };

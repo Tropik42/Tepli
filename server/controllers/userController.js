@@ -4,7 +4,8 @@ const pool = require('../db');
 require('dotenv').config();
 const jwtGenerator = require('../utils/jwtGenerator');
 const queries = require('../queries/users');
-const jwtRegistration = require('../utils/jwtGenerator');
+const jwtRegistration = require('../utils/jwtGenerator')
+
 
 const getAllUsers = async (req, res) => {
   try {
@@ -20,9 +21,8 @@ const userRegistration = async (req, res) => {
     const {  username, password } = req.body;
 
     try {
-      const user = await pool.query(queries.createUser, [
-        username
-      ]);
+      const user = await pool.query(queries.userLogin,[ username]);
+
 
       if (user.rows.length > 0) {
         return res.status(401).json("пользователь существует!");
@@ -35,7 +35,7 @@ const userRegistration = async (req, res) => {
           [username, bcryptPassword]
       );
 
-      const jwtToken = jwtRegistration(newUser.rows[0].user_id, username);
+      const jwtToken = jwtRegistration(newUser.rows[0].user_id);
 
       return res.json({ jwtToken });
     } catch (err) {
