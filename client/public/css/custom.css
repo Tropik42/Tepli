@@ -50,3 +50,8 @@
 .ueb-button:hover{
     background-color: #6AC5E2;
 }
+.sideBarNewsElement{
+    color: white;
+    white-space: pre-line;
+    overflow: hidden;
+}

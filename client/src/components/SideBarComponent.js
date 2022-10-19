@@ -23,7 +23,7 @@ const SideBarComponent = () => {
                                 new Date(news.newsDate).getMonth()}.${
                                 new Date(news.newsDate).getFullYear()}`
                             }</p>
-                            <p className="text-justify">{news.body}</p>
+                            <div className="text-justify, sideBarNewsElement">{news.body.substring(0, 100)+ '...'}</div>
                             <hr/>
                         </div>
             )))}
