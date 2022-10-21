@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import axios from "axios";
 
 const SideBarComponent = () => {
-    const [allnews, setNews] = useState([])
+    const [allNews, setNews] = useState([])
 
     async function getNews() {
         await axios.get('http://localhost:5000/api/v1/news')
@@ -14,20 +14,22 @@ const SideBarComponent = () => {
     }, []);
 
     return (
-        <React.Fragment>
-            {(allnews.slice(0).reverse().map(news => (
-                        <div className="wrapper">
-                            <a href="#"><h4>{news.title}</h4></a>
-                            <p id="dateSpan">{`${
-                                new Date(news.newsDate).getDate()}.${
-                                new Date(news.newsDate).getMonth()}.${
-                                new Date(news.newsDate).getFullYear()}`
-                            }</p>
-                            <div className="text-justify, sideBarNewsElement">{news.body.substring(0, 100)+ '...'}</div>
-                            <hr/>
-                        </div>
+        <div>
+            {(allNews.slice(0).reverse().map(news => (
+                <React.Fragment key={news.newsId}>
+                    <div className="wrapper">
+                        <a href="#"><h4>{news.title}</h4></a>
+                        <p id="dateSpan">{`${
+                            new Date(news.newsDate).getDate()}.${
+                            new Date(news.newsDate).getMonth()}.${
+                            new Date(news.newsDate).getFullYear()}`
+                        }</p>
+                        <div className="text-justify, sideBarNewsElement">{news.body.substring(0, 100) + '...'}</div>
+                        <hr/>
+                    </div>
+                </React.Fragment>
             )))}
-        </React.Fragment>
+        </div>
     );
 }
 export {SideBarComponent};
