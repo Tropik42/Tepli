@@ -2,8 +2,8 @@ module.exports = {
   /* eslint-disable */
   getAllNews: `
     SELECT
-      news_id          AS "newsId"
-      ,create_datetime AS "newsDate"
+       news_id          AS "newsId"
+      ,create_datetime  AS "newsDate"
       ,title
       ,body
       ,state
@@ -15,8 +15,8 @@ module.exports = {
 
   getOneNews: `
     SELECT 
-      news_id          AS "newsId"
-      ,create_datetime AS "newsDate"
+       news_id          AS "newsId"
+      ,create_datetime  AS "newsDate"
       ,title
       ,body
       ,state
@@ -31,8 +31,8 @@ module.exports = {
       news (title, body)
     VALUES ($1, $2)
     RETURNING 
-      news_id          AS "newsId"
-      ,create_datetime AS "newsDate"
+       news_id          AS "newsId"
+      ,create_datetime  AS "newsDate"
       ,title
       ,body
       ,state

@@ -11,6 +11,7 @@ const News = () => {
         try {
             const postNews = {title, body}
             const result = await axios.post('http://localhost:5000/api/v1/news', postNews)
+            window.location = "/news"
             console.log(result)
         } catch (e) {
             console.log(e.message())
@@ -53,4 +54,3 @@ const News = () => {
     )
 }
 export {News}
-
