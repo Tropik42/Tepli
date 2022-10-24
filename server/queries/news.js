@@ -48,27 +48,28 @@ module.exports = {
       news_id = $3
   `,
   /* eslint-enable */
-  createImages: `
+  createImage: `
     INSERT INTO 
-      images (news_id, img)
+        images (news_id, img)
     VALUES ($1, $2)
-    RETURNING 
-      images_id        AS "imagesId"
-      news_id          AS "newsId"
-      ,img
+     RETURNING 
+        image_id        AS "imageId"
+        ,news_id          AS "newsId"
+        ,img
       
   `,
 
   joinImages: `
     SELECT
-      news.title      AS "newsTitle"
-      ,news.body      AS "newsBody"   
-      ,images.img     AS "imagesImg"
+         news.title       AS "newsTitle"
+        ,news.body        AS "newsBody"   
+        ,images.img       AS "pathImg"
       FROM
-      news 
-      LEFT  OUTER JOIN images 
+         news               
+      LEFT JOIN
+         images  
       ON 
-      news.news_id = images.news_id;
+         news.news_id = images.news_id;
       
   `,
 };
