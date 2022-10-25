@@ -48,4 +48,4 @@ module.exports = {
       news_id = $3
   `,
   /* eslint-enable */
-}; 
+};
