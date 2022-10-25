@@ -1,10 +1,9 @@
-const ApiError = require('../error/apiError');
-const pool = require('../db');
-const queries = require('../queries/news.js')
+const {query} = require('../db');
+const queries = require('../queries/news');
 
 const getAllNews = async (req, res) => {
   try {
-    const allNews = await pool.query(
+    const allNews = await query(
       queries.getAllNews,
     );
     res.json(allNews.rows);
@@ -16,7 +15,7 @@ const getAllNews = async (req, res) => {
 const getOneNews = async (req, res) => {
   try {
     const {id} = req.params;
-    const singleNews = await pool.query(queries.getOneNews, [
+    const singleNews = await query(queries.getOneNews, [
       id,
     ]);
     res.json(singleNews.rows[0]);
@@ -28,7 +27,7 @@ const getOneNews = async (req, res) => {
 const createNews = async (req, res) => {
   try {
     const {title, body} = req.body;
-    const createNews = await pool.query(queries.createNews, [
+    const createNews = await query(queries.createNews, [
       title, body,
     ]);
     res.json(createNews.rows);
@@ -41,7 +40,7 @@ const updateNews = async (req, res) => {
   try {
     const {id} = req.params;
     const {title, body} = req.body;
-    await pool.query(queries.updateNews, [
+    await query(queries.updateNews, [
       title, body, id,
     ]);
     res.json(`Новость №${id} была обновлена`);
