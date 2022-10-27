@@ -50,7 +50,7 @@ module.exports = {
 
   createImage: `
     INSERT INTO 
-        images (news_id, img)
+      images (news_id, img)
     VALUES ($1, $2)
     RETURNING 
        image_id        AS "imageId"
