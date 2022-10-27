@@ -15,15 +15,15 @@ CREATE TABLE news(
   ,state           TEXT                 DEFAULT 'enabled'
 );
 
- CREATE TABLE images (
-   image_id   SERIAL PRIMARY KEY
-   ,news_id   INT REFERENCES news (news_id)
-   ,img       VARCHAR(255)         NOT NULL
-   ,FOREIGN KEY (news_id) REFERENCES news (news_id)
+CREATE TABLE images(
+    image_id       SERIAL PRIMARY KEY
+   ,news_id        INT REFERENCES news (news_id)
+   ,img            VARCHAR(255)         NOT NULL
 );
+
 INSERT INTO users (user_name, user_password) VALUES ('user', 'userpassword');
 INSERT INTO users (user_name, user_password, is_admin) VALUES ('admin', 'adminpassword', true);
 
+INSERT INTO news(title, body) VALUES ('proverka','proverkakartinok');
 INSERT INTO images (news_id, img) VALUES ('1','pathone');
-INSERT INTO news(title,body) VALUES ('proverka','proverkakartinok');
 
