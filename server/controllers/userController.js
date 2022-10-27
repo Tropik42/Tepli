@@ -1,15 +1,13 @@
-const bcrypt = require('bcrypt');
-const ApiError = require('../error/ApiError');
-const pool = require('../db');
+const {query} = require('../db');
 require('dotenv').config();
 const jwtGenerator = require('../utils/jwtGenerator');
-const queries = require('../queries/users')
+const queries = require('../queries/users');
 
 const getAllUsers = async (req, res) => {
   try {
-    const allUsers = await pool.query(
+    const allUsers = await query(
       queries.getAllUsers,
-      );
+    );
     res.json(allUsers.rows);
   } catch (err) {
     console.error(err.message);
@@ -19,8 +17,8 @@ const getAllUsers = async (req, res) => {
 const userLogin = async (req, res) => {
   const {username, password} = req.body;
   try {
-    const user = await pool.query(queries.userLogin,[
-      username
+    const user = await query(queries.userLogin, [
+      username,
     ]);
     if (user.rows.length === 0) {
       return res.status(401).json('Пользователь не найден');
@@ -48,4 +46,3 @@ module.exports = {
   getAllUsers,
   userLogin,
 };
-
