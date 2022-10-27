@@ -1,5 +1,5 @@
 .hello {
-    padding: 2.5rem;
+    padding: 2.3rem;
 
 }
 .shine-button {
@@ -38,8 +38,8 @@
     background-color: #2aabd2;
     border: none;
     color: white;
-    padding: 10px 30px;
-    margin: 10px 20px;
+    padding: 5px 2px;
+    margin: 1px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -54,4 +54,8 @@
     color: white;
     white-space: pre-line;
     overflow: hidden;
+}
+
+.colorite{
+    color:#e8e8e8;
 }
