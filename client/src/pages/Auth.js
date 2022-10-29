@@ -11,11 +11,12 @@ const Auth = () => {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const navigate = useNavigate()
-    const goBack = () => navigate('/')
+    const goHomePage = () => navigate('/')
+
 
     const signIn = async () => {
         let data = await login(username, password,)
-            data? goBack() : window.alert('неверный логин или пароль')
+            data ? goHomePage() : window.alert('неверный логин или пароль')
 
     }
 
