@@ -4,7 +4,7 @@ const queries = require('../queries/news');
 const getAllNews = async (req, res) => {
   try {
     const allNews = await pool.query(
-        queries.getAllNews,
+      queries.getAllNews,
     );
     res.json(allNews.rows);
   } catch (err) {
@@ -19,7 +19,6 @@ const getOneNews = async (req, res) => {
       id,
     ]);
     res.json(singleNews.rows[0]);
-
   } catch (err) {
     console.error(err.message);
   }
