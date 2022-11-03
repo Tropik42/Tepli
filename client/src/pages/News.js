@@ -2,7 +2,8 @@ import React, {useEffect, useState} from "react"
 import {NewsList} from "../components/NewsList";
 import instance from "../axios/axiosController"
 
-const axios = require('axios')
+
+
 const News = () => {
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
