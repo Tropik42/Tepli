@@ -68,28 +68,4 @@ module.exports = {
       LEFT JOIN images AS i ON n.news_id = i.news_id;      
   `,
   /* eslint-enable */
-  createImage: `
-    INSERT INTO 
-        images (news_id, img)
-    VALUES ($1, $2)
-     RETURNING 
-        image_id        AS "imageId"
-        ,news_id          AS "newsId"
-        ,img
-      
-  `,
-
-  joinImages: `
-    SELECT
-         news.title       AS "newsTitle"
-        ,news.body        AS "newsBody"   
-        ,images.img       AS "pathImg"
-      FROM
-         news               
-      LEFT JOIN
-         images  
-      ON 
-         news.news_id = images.news_id;
-      
-  `,
 };
