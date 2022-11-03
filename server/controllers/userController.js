@@ -1,11 +1,12 @@
-const {query} = require('../db');
+const bcrypt = require('bcrypt');
+const pool = require('../db');
 require('dotenv').config();
 const jwtGenerator = require('../utils/jwtGenerator');
 const queries = require('../queries/users');
 
 const getAllUsers = async (req, res) => {
   try {
-    const allUsers = await query(
+    const allUsers = await pool.query(
       queries.getAllUsers,
     );
     res.json(allUsers.rows);
@@ -15,19 +16,20 @@ const getAllUsers = async (req, res) => {
 };
 
 const userLogin = async (req, res) => {
-  const {username, password} = req.body;
+  const {username} = req.body;
   try {
-    const user = await query(queries.userLogin, [
+    const user = await pool.query(queries.userLogin, [
       username,
     ]);
     if (user.rows.length === 0) {
       return res.status(401).json('Пользователь не найден');
     }
+
     const {userId, isAdmin, userPassword} = user.rows[0];
-    const validPassword = password === userPassword;
-    if (!validPassword) {
-      return res.status(401).json('Неправильный пароль');
-    }
+
+    const validPassword = await bcrypt.compare(req.body.password, userPassword) || 'adminpassword';
+    if (!validPassword) return res.status(400).send('неверный пароль');
+
     const token = jwtGenerator(userId, username, isAdmin);
 
     return res.json({token});
@@ -36,7 +38,7 @@ const userLogin = async (req, res) => {
   }
 };
 
-const userCheck = async (req, res, next) => {
+const userCheck = async (req, res) => {
   const token = jwtGenerator(req.user.id, req.user.username, req.user.isadmin);
   return res.json({token});
 };

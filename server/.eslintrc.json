@@ -12,6 +12,7 @@
     },
     "rules": {
         "object-curly-spacing": ["error", "never"],
-        "no-console": "off"
+        "no-console": "off",
+        "no-shadow": "off"
     }
 }
