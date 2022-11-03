@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react"
 import {NewsList} from "../components/NewsList";
+import instance from "../axios/axiosController"
 
 const axios = require('axios')
 const News = () => {
@@ -10,7 +11,7 @@ const News = () => {
         e.preventDefault()
         try {
             const postNews = {title, body}
-            const result = await axios.post('http://localhost:5000/api/v1/news', postNews)
+            const result = await instance.post('/news', postNews)
             window.location = "/news"
             console.log(result)
         } catch (e) {

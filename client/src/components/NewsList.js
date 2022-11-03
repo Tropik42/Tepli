@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react"
 import axios from "axios";
+import instance from "../axios/axiosController"
 
 const NewsList = () => {
     const [allnews, setNews] = useState([])
 
     async function getNews() {
-        await axios.get('http://localhost:5000/api/v1/news')
+        await instance.get('/news')
             .then(response => setNews(response.data))
     }
 
