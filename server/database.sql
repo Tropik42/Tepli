@@ -21,9 +21,15 @@ CREATE TABLE images(
    ,img            VARCHAR(255)         NOT NULL
 );
 
+CREATE TABLE about(
+     about_id       SERIAL PRIMARY KEY
+    ,body           VARCHAR(255)         NOT NULL
+);
+
 INSERT INTO users (user_name, user_password) VALUES ('user', 'userpassword');
 INSERT INTO users (user_name, user_password, is_admin) VALUES ('admin', 'adminpassword', true);
 
 INSERT INTO news(title, body) VALUES ('proverka','proverkakartinok');
 INSERT INTO images (news_id, img) VALUES ('1','pathone');
 
+INSERT INTO aboutt (body) VALUES ('проверка');
