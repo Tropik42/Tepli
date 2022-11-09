@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react"
-import axios from "axios";
 import instance from "../axios/axiosController"
 
 const NewsList = () => {
-    const [allnews, setNews] = useState([])
+    const [allNews, setNews] = useState([])
 
     async function getNews() {
         await instance.get('/news')
@@ -12,11 +11,11 @@ const NewsList = () => {
 
     useEffect(() => {
         getNews();
-    }, []);
+    }, );
 
     return (
         <React.Fragment>
-            {allnews.slice(0).reverse().map(news => (
+            {allNews.slice(0).reverse().map(news => (
                 <div className="wrapper">
                     <div className="container">
                         <div className="col-lg-12">
