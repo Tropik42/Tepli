@@ -2,11 +2,15 @@ import React, {useEffect, useState} from "react"
 import instance from "../axios/axiosController"
 
 const AboutCompany = () => {
-    const [allabout, setAbout] = useState([])
+    const [allAbout, setAbout] = useState([])
 
-    async function getAbout() {
-        await instance.get('/about')
-            .then(response => setAbout(response.data))
+    const getAbout = async () => {
+        try {
+            const {data} = await instance.get('/about')
+            setAbout(data)
+        } catch (err) {
+            console.error(err.message)
+        }
     }
 
     useEffect(() => {
@@ -15,7 +19,7 @@ const AboutCompany = () => {
 
     return (
         <React.Fragment>
-            {allabout.map(about=>(
+            {allAbout.map(about=>(
                 <div>
                     <h2>
                         {about.body}
