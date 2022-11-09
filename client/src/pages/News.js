@@ -1,12 +1,11 @@
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 import {NewsList} from "../components/NewsList";
 import instance from "../axios/axiosController"
 
-const axios = require('axios')
+
 const News = () => {
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
-
     const onSubmitForm = async e => {
         e.preventDefault()
         try {
@@ -18,10 +17,8 @@ const News = () => {
             console.log(e.message())
         }
     }
-
     return (
         <React.Fragment>
-
             <form className={"d-flex mt-2"} onSubmit={onSubmitForm}>
                 <div className={"mb-3 d-flex"}>
                     <label className={"text-danger"}>Заголовок</label>
@@ -40,7 +37,6 @@ const News = () => {
                               rows="3">
                     </textarea>
                 </div>
-
                 <div className={"mb-3"}>
                     <label className={"text-danger"}>Изображение</label>
                     <input className={"form-control"} type={"file"} id={"formFile"}/>
@@ -48,9 +44,7 @@ const News = () => {
                 <hr className={"invisible"}/>
                 <button className="btn btn-success float">Add</button>
             </form>
-
             <NewsList/>
-
         </React.Fragment>
     )
 }

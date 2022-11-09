@@ -11,3 +11,14 @@ function jwtGenerator(user_id, username, isadmin) {
 }
 
 module.exports = jwtGenerator;
+
+function jwtRegistration(user_id) {
+  const payload = {
+    user: {
+      id: user_id
+    },
+  };
+  return jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: '3h'});
+}
+
+module.exports = jwtRegistration;
