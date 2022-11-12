@@ -27,7 +27,7 @@ CREATE TABLE about(
 );
 
 INSERT INTO users (user_name, user_password) VALUES ('user', 'userpassword');
-INSERT INTO users (user_name, user_password, is_admin) VALUES ('admin', 'adminpassword', true);
+INSERT INTO users (user_name, user_password, is_admin) VALUES ('admin', '$2b$05$mlLEzfTMMUyBk85uUQNkfOHPo.M2CG9xIPuXybQaSVQPgKsgDApn2', true);
 
 INSERT INTO news (title, body) VALUES ('proverka','proverkakartinok');
 INSERT INTO images (news_id, img) VALUES ('1','pathone');
