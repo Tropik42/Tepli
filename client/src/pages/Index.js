@@ -1,5 +1,6 @@
 import React from "react"
 import {SideBarComponent} from "../components/SideBarComponent";
+import {NavLink} from "react-router-dom";
 
 const Index = () => {
     return (
@@ -79,7 +80,7 @@ const Index = () => {
                                 desktop publishing software like Aldus </p>
                         </div>
                         <div className="learn_more">
-                            <p className="text-right"><a href="about.html">Узнать о компании больше</a></p>
+                            <p className="text-right"><NavLink to={'/About'}>Узнать о компании больше</NavLink></p>
                         </div>
                         <div className="margin-5"></div>
                         <div className="row">
