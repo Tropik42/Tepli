@@ -51,7 +51,7 @@ const Auth = () => {
 
                 <div className="row">
                     <div className="form-group colorite text-center">
-                        Нет аккаунта? <NavLink to={'/News'}>прочитай новости)</NavLink>
+                        Нет аккаунта? <NavLink to={'/Registration'}>Зарегистрируйся</NavLink>
                     </div>
                 <Button className="ueb-button col-md-3 col-md-offset-3 pull-right"
                   onClick={signIn}

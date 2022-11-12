@@ -20,19 +20,19 @@ const userRegistration = async (req, res) => {
   try {
     const user = await pool.query(queries.userLogin, [username]);
     if (user.rows.length) {
-      return res.status(401).json('пользователь существует!');
+      return res.status(401).json('Пользователь существует!');
     }
     const salt = await bcrypt.genSalt(5);
     const bcryptPassword = await bcrypt.hash(password, salt);
-    const {newUser} = await pool.query(
+    let newUser = await pool.query(
       queries.createUser,
-      [username, bcryptPassword],
+      [username, bcryptPassword]
     );
     const jwtToken = jwtRegistration(newUser.rows[0].user_id);
     return res.json({jwtToken});
   } catch (err) {
     console.error(err.message);
-    return res.status(500).send('ошибка сервера');
+    return res.status(500).send('Ошибка сервера');
   }
 };
 
@@ -46,14 +46,15 @@ const userLogin = async (req, res) => {
       return res.status(401).json('Пользователь не найден');
     }
     const {userId, isAdmin, userPassword} = user.rows[0];
-    const validPassword = await bcrypt.compare(req.body.password, userPassword) || 'adminpassword';
-    if (!validPassword) return res.status(400).send('неверный пароль');
+    const validPassword = await bcrypt.compare(req.body.password, userPassword);
+    if (!validPassword) return res.status(400).send('Неверный пароль');
+    console.log(validPassword)
 
     const token = jwtGenerator(userId, username, isAdmin);
     return res.json({token});
   } catch (err) {
     console.error(err.message);
-    return res.status(500).send('ошибка сервера');
+    return res.status(500).send('Ошибка сервера');
   }
 };
 
