@@ -21,51 +21,42 @@ const Registration = () =>{
     }
     return (
         <React.Fragment>
-        <Container >
-
-          <Card>
-              <div className='row'>
-
-                  <h2 className="col-md-6 col-md-offset-3 hello colorite" >Регистрация</h2>
-                  <div className="row col-md-8 col-md-offset-4"></div>
-
-            </div>
-              <div className="row">
-            <Form className="col-md-4 col-md-offset-4 form-horizontal" >
-
-                <div className="form-group">
-
-                <Form.Control className="form-group"
-                placeholder='Логин...'
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-
-                />
-                <Form.Control className="form-group"
-                placeholder='Пароль...'
-                type='password'
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                />
-                </div>
-
-                <div className="row">
-                    <div className="form-group colorite text-center">
-                        Есть аккаунт? <NavLink to={'/Auth'}>Войди</NavLink>
+            <Container >
+                <Card>
+                    <div className='row'>
+                        <h2 className="col-md-6 col-md-offset-3 hello colorite" >Регистрация</h2>
+                        <div className="row col-md-8 col-md-offset-4"></div>
                     </div>
-                <Button className="ueb-button col-md-3 col-md-offset-3 pull-right"
-                     onClick={onSubmitForm}
-                >
-                    Войти
-                </Button>
-                </div>
-            </Form>
-              </div>
-          </Card>
-
-        </Container>
+                    <div className="row">
+                    <Form className="col-md-4 col-md-offset-4 form-horizontal" >
+                        <div className="form-group">
+                            <Form.Control className="form-group"
+                            placeholder='Логин...'
+                            value={username}
+                            onChange={e => setUsername(e.target.value)}
+                            />
+                            <Form.Control className="form-group"
+                            placeholder='Пароль...'
+                            type='password'
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
+                            />
+                        </div>
+                        <div className="row">
+                            <div className="form-group colorite text-center">
+                                Есть аккаунт? <NavLink to={'/Auth'}>Войди</NavLink>
+                            </div>
+                        <Button className="ueb-button col-md-3 col-md-offset-3 pull-right"
+                            onClick={onSubmitForm}
+                        >
+                            Войти
+                        </Button>
+                        </div>
+                    </Form>
+                    </div>
+                </Card>
+            </Container>
         </React.Fragment>
-
     );
 };
 export {Registration};

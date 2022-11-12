@@ -17,26 +17,24 @@ const getAllUsers = async (req, res) => {
 };
 const userRegistration = async (req, res) => {
   const {  username, password } = req.body;
-
   try {
-    const user = await pool.query(queries.userLogin,[ username]);
-
-
-    if (user.rows.length > 0) {
-      return res.status(401).json("пользователь существует!");
+    const user = await pool.query(queries.userLogin,[username]);
+    if (user.rows.length) {
+      return res.status(401).json('пользователь существует!');
     }
     const salt = await bcrypt.genSalt(5);
     const bcryptPassword = await bcrypt.hash(password, salt);
-    let newUser = await pool.query(queries.createUser,
-        [username, bcryptPassword]
+    let newUser = await pool.query(
+      queries.createUser,
+      [username, bcryptPassword]
     );
     const jwtToken = jwtRegistration(newUser.rows[0].user_id);
-    return res.json({ jwtToken });
+    return res.json({jwtToken});
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("ошибка сервера");
+    return res.status(500).send('ошибка сервера');
   }
-}
+};
 
 const userLogin = async (req, res) => {
   const {username} = req.body;
