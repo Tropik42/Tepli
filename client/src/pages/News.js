@@ -2,8 +2,6 @@ import React, {useState} from "react"
 import {NewsList} from "../components/NewsList";
 import instance from "../axios/axiosController"
 
-
-
 const News = () => {
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
@@ -21,11 +19,8 @@ const News = () => {
         }
     }
 
-
-
     return (
         <React.Fragment>
-
             <form className={"d-flex mt-2"} onSubmit={onSubmitForm}>
                 <div className={"mb-3 d-flex"}>
                     <label className={"text-danger"}>Заголовок</label>

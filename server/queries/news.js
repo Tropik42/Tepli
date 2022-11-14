@@ -3,7 +3,7 @@ module.exports = {
   getAllNews: `
     SELECT
        news_id          AS "newsId"
-      ,create_datetime  AS "newsDate"
+      ,TO_CHAR(create_datetime, 'DD.MM.YYYY') AS "newsDate"
       ,title
       ,body
       ,state

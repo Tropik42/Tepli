@@ -16,7 +16,7 @@ const NewsList = () => {
     return (
         <React.Fragment>
             {allNews.slice(0).reverse().map(news => (
-                <div className="wrapper">
+                <div key={news.newsId} className="wrapper">
                     <div className="container">
                         <div className="col-lg-12">
                             <div className="row news">
@@ -40,6 +40,5 @@ const NewsList = () => {
             ))}
         </React.Fragment>
     );
-
 }
 export {NewsList};

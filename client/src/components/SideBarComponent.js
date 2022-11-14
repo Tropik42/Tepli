@@ -20,11 +20,7 @@ const SideBarComponent = () => {
                 <React.Fragment key={news.newsId}>
                     <div className="wrapper">
                         <a href="#"><h4>{news.title}</h4></a>
-                        <p id="dateSpan">{`${
-                            new Date(news.newsDate).getDate()}.${
-                            new Date(news.newsDate).getMonth()}.${
-                            new Date(news.newsDate).getFullYear()}`
-                        }</p>
+                        <p id="dateSpan">{news.newsDate}</p>
                         <div className="text-justify, sideBarNewsElement">{news.body.substring(0, 100) + '...'}</div>
                         <hr/>
                     </div>
