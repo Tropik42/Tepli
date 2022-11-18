@@ -38,8 +38,8 @@
     background-color: #2aabd2;
     border: none;
     color: white;
-    padding: 5px 2px;
-    margin: 1px 20px;
+    padding: 2px 20px;
+    margin: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -58,4 +58,8 @@
 
 .colorite{
     color:#e8e8e8;
+}
+
+.navbarButton{
+    margin-left: 21rem;
 }

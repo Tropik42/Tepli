@@ -1,22 +1,29 @@
-import React, {Fragment, useState} from "react";
-import instance from "../axios/axiosController";
-import {useNavigate, NavLink} from "react-router-dom";
+import React, {useState, useContext} from "react";
+import {NavLink,useNavigate, useLocation} from "react-router-dom";
 import {Form, Container, Card, Button} from 'react-bootstrap'
+import {registration} from './../http/userApi';
+import {observer} from 'mobx-react-lite';
+import { AuthContext } from '../hoc/AuthProvider'
 
-const Registration = () =>{
+const Registration = observer(() =>{
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
+    const {user}= useContext(AuthContext)
     const navigate = useNavigate()
-    const goHomePage = () => navigate('/')
+    const location = useLocation()
+    const goPage = () => navigate(fromPage)
+    const fromPage = location.state?.from?.pathname || '/'
     const onSubmitForm = async e => {
         e.preventDefault()
-        try {
-            const createUser = {username, password}
-            const result = await instance.post('/user', createUser)
-            result ? goHomePage() : window.alert('неверный логин или пароль')
+        try {            
+            const result = await registration(username, password,)
+            result ? goPage() : window.alert('неверный логин или пароль')
             console.log(result)
-        } catch (e) {
-            console.log(e.message())
+            user.setUser(user)
+            user.setIsAuth(true)
+            
+        } catch (err) {
+            console.error(err.message)
         }
     }
     return (
@@ -58,5 +65,5 @@ const Registration = () =>{
             </Container>
         </React.Fragment>
     );
-};
+});
 export {Registration};

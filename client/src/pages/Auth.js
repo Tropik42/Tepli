@@ -1,23 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import {Form, Container, Card, Button} from 'react-bootstrap'
 import { login } from './../http/userApi';
-import {useNavigate, NavLink} from "react-router-dom";
+import {useNavigate, NavLink, useLocation} from "react-router-dom";
+import {observer} from 'mobx-react-lite';
+import { AuthContext } from '../hoc/AuthProvider'
 
 
-
-
-
-const Auth = () => {
+const Auth = observer(() => {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const navigate = useNavigate()
-    const goHomePage = () => navigate('/')
-
+    const goPage = () => navigate(fromPage)
+    const location = useLocation()
+    const fromPage = location.state?.from?.pathname || '/'
+    const {user}= useContext(AuthContext)
 
     const signIn = async () => {
-        let data = await login(username, password,)
-            data ? goHomePage() : window.alert('неверный логин или пароль')
-
+        try{ 
+            let data = await login(username, password,)
+                data ? goPage() : window.alert('неверный логин или пароль')
+            console.log(data)
+            user.setUser(user)
+            user.setIsAuth(true)
+        }catch(err){
+        console.error(err.message)
+    }
+        
     }
 
     return (
@@ -65,6 +73,6 @@ const Auth = () => {
 
         </Container>
     )
-}
+})
 
 export {Auth};
