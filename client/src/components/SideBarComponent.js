@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 
 import instance from "../axios/axiosController"
+import {Link} from "react-router-dom";
 
 const SideBarComponent = () => {
     const [allNews, setNews] = useState([])
@@ -19,7 +20,7 @@ const SideBarComponent = () => {
             {(allNews.slice(0).reverse().map(news => (
                 <React.Fragment key={news.newsId}>
                     <div className="wrapper">
-                        <a href="#"><h4>{news.title}</h4></a>
+                        <Link to={`/news/${news.newsId}`}><h4>{news.title}</h4></Link>
                         <p id="dateSpan">{news.newsDate}</p>
                         <div className="text-justify, sideBarNewsElement">{news.body.substring(0, 100) + '...'}</div>
                         <hr/>

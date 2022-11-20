@@ -8,6 +8,7 @@ import {News} from './pages/News'
 import {Price} from './pages/Price'	
 import {Auth} from './pages/Auth'
 import {Registration} from './pages/Registration';
+import {SingleNewsPage} from "./pages/SingleNewsPage";
 import './App.css'
 
 function App() {	
@@ -16,10 +17,11 @@ function App() {
         <Routes>	
          <Route path="/" element={<Index/>} />	
          <Route path="/about" element={<About/>} />	
-         <Route path="/news" element={<News/>} />	
-         <Route path="/catalog" element={<Catalog/>} />	
-         <Route path="/price" element={<Price/>} />	
-         <Route path="/contacts" element={<Contacts/>} />	
+         <Route path="/news" element={<News/>}/>
+         <Route path="/news/:id" element={<SingleNewsPage/>} />
+         <Route path="/catalog" element={<Catalog/>} />
+         <Route path="/price" element={<Price/>} />
+         <Route path="/contacts" element={<Contacts/>} />
          <Route path="/auth" element={<Auth/>} />	
          <Route path="/registration" element={<Registration/>} />
         </Routes>	
