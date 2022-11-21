@@ -3,7 +3,7 @@ import {NavLink,useNavigate, useLocation} from "react-router-dom";
 import {Form, Container, Card, Button} from 'react-bootstrap'
 import {registration} from './../http/userApi';
 import {observer} from 'mobx-react-lite';
-import { AuthContext } from '../hoc/AuthProvider'
+import {AuthContext} from '../hoc/AuthProvider'
 
 const Registration = observer(() =>{
     const [password, setPassword] = useState('')
@@ -16,12 +16,14 @@ const Registration = observer(() =>{
     const onSubmitForm = async e => {
         e.preventDefault()
         try {            
-            const result = await registration(username, password,)
-            result ? goPage() : window.alert('неверный логин или пароль')
-            console.log(result)
+            const result = await registration(username, password)
+            if (!result) {
+                window.alert('логин уже существует')
+                return false
+            } 
+            goPage()
             user.setUser(user)
             user.setIsAuth(true)
-            
         } catch (err) {
             console.error(err.message)
         }
@@ -53,10 +55,10 @@ const Registration = observer(() =>{
                             <div className="form-group colorite text-center">
                                 Есть аккаунт? <NavLink to={'/Auth'}>Войди</NavLink>
                             </div>
-                        <Button className="ueb-button col-md-3 col-md-offset-3 pull-right"
+                        <Button className="ueb-button  col-md-offset-3 pull-right"
                             onClick={onSubmitForm}
                         >
-                            Войти
+                            Зарегистрируйся
                         </Button>
                         </div>
                     </Form>

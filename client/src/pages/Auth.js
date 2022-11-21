@@ -16,15 +16,19 @@ const Auth = observer(() => {
     const {user}= useContext(AuthContext)
 
     const signIn = async () => {
-        try{ 
-            let data = await login(username, password,)
-                data ? goPage() : window.alert('неверный логин или пароль')
+        try { 
+            let data = await login(username, password)
+            if (!data) {
+                window.alert('Неверный логин или пароль')
+                return false
+            } 
+            goPage()
             console.log(data)
             user.setUser(user)
             user.setIsAuth(true)
-        }catch(err){
-        console.error(err.message)
-    }
+        } catch(err) {
+            console.error(err.message)
+        }
         
     }
 
