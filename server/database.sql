@@ -21,6 +21,11 @@ CREATE TABLE images(
    ,img            VARCHAR(255)         NOT NULL
 );
 
+CREATE TABLE main_page_images(
+    image_id       SERIAL PRIMARY KEY
+   ,img            VARCHAR(255)         NOT NULL
+);
+
 CREATE TABLE about(
      about_id       SERIAL PRIMARY KEY
     ,body           TEXT                NOT NULL
@@ -31,5 +36,7 @@ INSERT INTO users (user_name, user_password, is_admin) VALUES ('admin', '$2b$05$
 
 INSERT INTO news (title, body) VALUES ('proverka','proverkakartinok');
 INSERT INTO images (news_id, img) VALUES ('1','pathone');
+
+INSERT INTO main_page_images (img) VALUES ('таков путь');
 
 INSERT INTO about (body) VALUES ('проверка');
