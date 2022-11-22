@@ -3,11 +3,13 @@ const express = require('express');
 const cors = require('cors');
 const router = require('./routes/index');
 const errorHandler = require('./middleware/ErrorHandlingMiddleware');
-
+const fileUpload = require('express-fileupload')
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 app.use('/api/v1', router);
+app.use(fileUpload({}))
 
 app.use(errorHandler);
 
