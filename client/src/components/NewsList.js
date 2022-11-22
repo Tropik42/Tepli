@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react"
 import instance from "../axios/axiosController"
+import {Link} from "react-router-dom";
 
 const NewsList = () => {
     const [allNews, setNews] = useState([])
@@ -30,7 +31,7 @@ const NewsList = () => {
                                     <p className="text-justify">{news.body}</p>
                                 </div>
                                 <div className="col-lg-12">
-                                    <a href="" className="btn btn-lg btn-primary pull-right">Подробнее</a>
+                                    <Link to={`/news/${news.newsId}`} className="btn btn-lg btn-primary pull-right">Подробнее</Link>
                                 </div>
                             </div>
                             <div className="margin-5"></div>
