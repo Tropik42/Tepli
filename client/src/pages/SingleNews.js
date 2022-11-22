@@ -3,17 +3,22 @@ import {useParams} from "react-router-dom";
 import instance from "../axios/axiosController";
 import {useState, useEffect} from "react";
 
-const SingleNewsPage = () => {
+const SingleNews = () => {
     const {id} = useParams()
     const [singleNews, setSingleNews] = useState([])
 
-    async function getOneNews() {
-        await instance.get(`/news/${id}`)
-            .then(res => setSingleNews(res.data))
+    const getOneNews = async () => {
+        try {
+            const {data} = await instance.get(`/news/${id}`)
+                setSingleNews(data)
+        } catch (err) {
+            console.error(err.message)
+        }
+
     }
     useEffect(() => {
-        getOneNews().catch();
-    }, [id]);
+        getOneNews()
+    } );
 
     return (
         <div className={"col-md-6 col-md-offset-3"}>
@@ -25,4 +30,4 @@ const SingleNewsPage = () => {
     );
 };
 
-export  {SingleNewsPage};
+export  {SingleNews};
