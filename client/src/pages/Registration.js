@@ -18,9 +18,9 @@ const Registration = observer(() =>{
         try {            
             const result = await registration(username, password)
             if (!result) {
-                window.alert('логин уже существует')
+                window.alert('логин уже существует или поля остались незаполненными')
                 return false
-            } 
+            }
             goPage()
             user.setUser(user)
             user.setIsAuth(true)
@@ -40,13 +40,15 @@ const Registration = observer(() =>{
                     <Form className="col-md-4 col-md-offset-4 form-horizontal" >
                         <div className="form-group">
                             <Form.Control className="form-group"
-                            placeholder='Логин...'
+                            placeholder='Логин...(не менее 5 символов)'
                             value={username}
+                            required
                             onChange={e => setUsername(e.target.value)}
                             />
                             <Form.Control className="form-group"
                             placeholder='Пароль...'
                             type='password'
+                            required
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                             />
