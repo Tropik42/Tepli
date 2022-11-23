@@ -18,6 +18,8 @@ const getAllUsers = async (req, res) => {
 const userRegistration = async (req, res) => {
   const {username, password} = req.body;
   try {
+    if(!username || !password){return res.status(403).json('логин или пароль остались пустыми')}
+    if(username.length < 5){return res.status(403).json('логин меньше 5 символов')}
     const user = await pool.query(queries.userLogin, [username]);
     if (user.rows.length) {
       return res.status(401).json('Пользователь существует!');
