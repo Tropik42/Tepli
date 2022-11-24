@@ -8,8 +8,8 @@ const Index = () => {
             <div className="wrapper">
                 <div className="container">
                     <div className="col-lg-3">
-                        <div className="news hidden-md hidden-sm hidden-xs">
-                            <a href="#"><h3>НОВОСТИ</h3></a>
+                        <div className="hidden-md hidden-sm hidden-xs">
+                            <a href="#"><h3 className="mt--5">НОВОСТИ</h3></a>
                             <hr/>
                             <SideBarComponent/>
                         </div>
@@ -22,7 +22,7 @@ const Index = () => {
                                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                             </ol>
-                            <div className="carousel-inner">
+                            <div className="carousel-inner mt--5">
                                 <div className="item active">
                                     <img src="img/car1.jpg" alt="..."/>
                                     <div className="carousel-caption">
