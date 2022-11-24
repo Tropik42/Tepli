@@ -22,10 +22,12 @@ const SingleNews = () => {
 
     return (
         <div className={"col-md-6 col-md-offset-3"}>
-            <h1 className={`hello colorite`}>{singleNews.title}</h1>
-            <p className={`hello colorite`}>{singleNews.body}</p>
-            <img className="img-thumbnail img-responsive pull-left" src="../img/lumb2.jpg"
-                 alt="Безумный Макс"/>
+            <div className={"wrapper-single"}>
+                <h1 className={`hello colorite single-title`}>{singleNews.title}</h1>
+                <p className={'below-title-meta'}>Создана | {singleNews.newsDate}</p>
+                <img className={'single-img'} src="../img/lumb2.jpg"/>
+                <p className={`hello colorite`}>{singleNews.body}</p>
+            </div>
         </div>
     );
 };

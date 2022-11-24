@@ -1,6 +1,36 @@
+/* margin 5 */
 .mt--5 {
 	margin-top: 5px;
 }
+/* single page css */
+.below-title-meta {
+	background: #666;
+	color: white;
+	line-height: 1.8;
+	width: 100%;
+	margin-left: 0%;
+	font-size: 100%;
+	text-align: right;
+	padding-right: 5px;
+}
+.wrapper-single {
+	border: 1px solid #35c6f5;
+	padding-bottom: 5px;
+}
+.single-title {
+	text-align: center;
+}
+.single-img {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* Цвет логотипа Tepli.ru статичный и при наведении курсора */
 .header a, .header a:hover {
 	color: white;
