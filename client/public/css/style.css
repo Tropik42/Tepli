@@ -1,3 +1,6 @@
+.mt--5 {
+	margin-top: 5px;
+}
 /* Цвет логотипа Tepli.ru статичный и при наведении курсора */
 .header a, .header a:hover {
 	color: white;
