@@ -3,7 +3,7 @@ module.exports = {
 createImages: `
     INSERT INTO 
         main_page_images (img)
-    VALUES ('$1')
+    VALUES ($1)
     RETURNING 
         image_id       
         ,img 
