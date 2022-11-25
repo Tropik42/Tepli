@@ -22,8 +22,9 @@ CREATE TABLE images(
 );
 
 CREATE TABLE main_page_images(
-    image_id       SERIAL PRIMARY KEY
-   ,img            VARCHAR(255)         NOT NULL
+    image_id        SERIAL PRIMARY KEY
+   ,img             VARCHAR(255)         NOT NULL
+   ,create_datetime TIMESTAMPTZ          DEFAULT NOW()
 );
 
 CREATE TABLE about(
