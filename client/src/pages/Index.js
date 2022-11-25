@@ -1,6 +1,7 @@
 import React from "react"
 import {SideBarComponent} from "../components/SideBarComponent";
 import {NavLink} from "react-router-dom";
+import { Images } from "../components/imagesMain";
 
 const Index = () => {
     return (
@@ -84,139 +85,8 @@ const Index = () => {
                         </div>
                         <div className="margin-5"></div>
                         <div className="row">
-                            <div className="col-lg-3 col-md-3 col-xs-6 col-sm-4">
-                                <div id="carousel_1" className="carousel slide" data-ride="carousel"
-                                     data-interval="5000" data-pause="hover">
-                                    <div className="carousel-inner">
-                                        <div className="item active">
-                                            <img className="ut" src="img/lumb1.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb4.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb6.jpg" alt="..."/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-3 col-xs-6 col-sm-4">
-                                <div id="carousel_1" className="carousel slide" data-ride="carousel"
-                                     data-interval="5000" data-pause="hover">
-                                    <div className="carousel-inner">
-                                        <div className="item active">
-                                            <img className="ut" src="img/lumb5.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb4.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb3.jpg" alt="..."/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-3 col-sm-4 hidden-xs">
-                                <div id="carousel_1" className="carousel slide" data-ride="carousel"
-                                     data-interval="5000" data-pause="hover">
-                                    <div className="carousel-inner">
-                                        <div className="item active">
-                                            <img src="img/lumb2.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb3.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb4.jpg" alt="..."/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-3 hidden-xs hidden-sm">
-                                <div id="carousel_1" className="carousel slide" data-ride="carousel"
-                                     data-interval="5000" data-pause="hover">
-                                    <div className="carousel-inner">
-                                        <div className="item active">
-                                            <img src="img/lumb6.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb4.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb5.jpg" alt="..."/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <Images/>
                         </div>
-                        <div className="margin-5"></div>
-                        <div className="row">
-                            <div className="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                <div id="carousel_1" className="carousel slide" data-ride="carousel"
-                                     data-interval="5000" data-pause="hover">
-                                    <div className="carousel-inner">
-                                        <div className="item active">
-                                            <img src="img/lumb3.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb2.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb1.jpg" alt="..."/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                <div id="carousel_1" className="carousel slide" data-ride="carousel"
-                                     data-interval="5000" data-pause="hover">
-                                    <div className="carousel-inner">
-                                        <div className="item active">
-                                            <img src="img/lumb2.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb5.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb3.jpg" alt="..."/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-3 col-sm-4 hidden-xs">
-                                <div id="carousel_1" className="carousel slide" data-ride="carousel"
-                                     data-interval="5000" data-pause="hover">
-                                    <div className="carousel-inner">
-                                        <div className="item active">
-                                            <img src="img/lumb3.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb5.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb4.jpg" alt="..."/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-3 hidden-xs hidden-sm">
-                                <div id="carousel_1" className="carousel slide" data-ride="carousel"
-                                     data-interval="5000" data-pause="hover">
-                                    <div className="carousel-inner">
-                                        <div className="item active">
-                                            <img src="img/lumb4.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb5.jpg" alt="..."/>
-                                        </div>
-                                        <div className="item">
-                                            <img src="img/lumb6.jpg" alt="..."/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="margin-5"></div>
                     </div>
                 </div>
             </div>
