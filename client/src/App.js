@@ -14,7 +14,7 @@ import './App.css';
 import {RequireAuth} from './hoc/RequireAuth';
 import {AuthContext} from './hoc/AuthProvider'
 import {observer} from 'mobx-react-lite';
-import { check } from './http/userApi';
+import {check} from './http/userApi';
 import {RequireMain} from './hoc/RequireMain';
 
 const App = observer(()=>{
