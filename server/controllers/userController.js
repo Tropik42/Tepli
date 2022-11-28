@@ -3,7 +3,7 @@ const pool = require('../db');
 require('dotenv').config();
 const jwtGenerator = require('../utils/jwtGenerator');
 const queries = require('../queries/users');
-const jwtRegistration = require('../utils/jwtGenerator');
+
 
 const getAllUsers = async (req, res) => {
   try {
@@ -18,6 +18,8 @@ const getAllUsers = async (req, res) => {
 const userRegistration = async (req, res) => {
   const {username, password} = req.body;
   try {
+    if(!username || !password){return res.status(403).json('логин или пароль остались пустыми')}
+    if(username.length < 5){return res.status(403).json('логин меньше 5 символов')}
     const user = await pool.query(queries.userLogin, [username]);
     if (user.rows.length) {
       return res.status(401).json('Пользователь существует!');
@@ -28,8 +30,9 @@ const userRegistration = async (req, res) => {
       queries.createUser,
       [username, bcryptPassword]
     );
-    const jwtToken = jwtRegistration(newUser.rows[0].user_id);
-    return res.json({jwtToken});
+    const {userId, isAdmin} = newUser.rows[0]
+    const token = jwtGenerator(userId, username, isAdmin);
+    return res.json({token});
   } catch (err) {
     console.error(err.message);
     return res.status(500).send('Ошибка сервера');
@@ -48,7 +51,7 @@ const userLogin = async (req, res) => {
     const {userId, isAdmin, userPassword} = user.rows[0];
     const validPassword = await bcrypt.compare(req.body.password, userPassword);
     if (!validPassword) return res.status(400).send('Неверный пароль');
-    console.log(validPassword)
+    
 
     const token = jwtGenerator(userId, username, isAdmin);
     return res.json({token});
