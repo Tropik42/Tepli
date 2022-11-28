@@ -9,7 +9,6 @@ import {Price} from './pages/Price'
 import {Auth} from './pages/Auth'
 import {Registration} from './pages/Registration';
 import {SingleNews} from "./pages/SingleNews";
-import './App.css'
 import './App.css';
 import {RequireAuth} from './hoc/RequireAuth';
 import {AuthContext} from './hoc/AuthProvider'
@@ -25,7 +24,7 @@ const App = observer(()=>{
       user.setUser(true)
       user.setIsAuth(true)
     }).finally(() => setLoading(false))
-  },[])
+  },[user])
   if(loading){return console.log('загрузка')}
   return (	
     <div className="container pt-4">
@@ -33,6 +32,7 @@ const App = observer(()=>{
           <Route path="/" element={<Index/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/news" element={<News/>} />
+          <Route path="/news/:id" element={<SingleNews/>} />
           <Route path="/catalog" element={
             <RequireAuth>
               <Catalog/>
