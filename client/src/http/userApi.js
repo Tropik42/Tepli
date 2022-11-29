@@ -1,5 +1,6 @@
 import jwt_decode from 'jwt-decode';
-import {$authHost, $host} from './index';
+// eslint-disable-next-line import/named
+import {$authHost, $host} from '../axios/axiosController';
 
 export const registration = async (username, password) => {
     try {
