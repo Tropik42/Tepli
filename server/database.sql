@@ -47,6 +47,9 @@ VALUES (
 INSERT INTO news (title, body) VALUES ('proverka','proverkakartinok');
 INSERT INTO images (news_id, img) VALUES ('1','pathone');
 
-INSERT INTO main_page_images (img) VALUES ('таков путь');
+INSERT INTO main_page_images (img) VALUES ('b8333b36-81f0-4462-9d04-b2f6ea29b74e.jpg');
+INSERT INTO main_page_images (img) VALUES ('9d9a8fdd-c7bd-4a6f-8e29-c0db8cdeb1d9.jpg');
+INSERT INTO main_page_images (img) VALUES ('c4d6e71d-2c21-4f82-af61-b56fa0f28e47.jpg');
+INSERT INTO main_page_images (img) VALUES ('15093eda-b593-4666-90a9-ccb75814d3f7.jpg');
 
 INSERT INTO about (body) VALUES ('проверка');

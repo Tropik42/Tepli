@@ -2,7 +2,7 @@ const Router = require('express');
 
 const router = Router();
 const {
-  getAbout,
+    getAbout,
 } = require('../controllers/aboutController');
 
 router.get('/', getAbout);

@@ -18,15 +18,36 @@
         "react"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/function-component-definition":"off",
         "object-curly-spacing": ["error", "never"],
         "no-console": "off",
         "no-shadow": "off",
         "linebreak-style": "off",
         "indent": ["error", 4],
-        "react/jsx-fragments": "off"
-        
-        
+        "react/jsx-fragments": "off",
+        "react/jsx-indent": "off",
+        "no-unused-vars":"warn",
+        "react/jsx-indent-props": "off",
+        "no-underscore-dangle": "off",
+        "react/prop-types": "off",
+        "react/jsx-no-constructed-context-values": "off",
+        "new-cap": "off",
+        "react/react-in-jsx-scope": "off",
+        "import/prefer-default-export": "off",
+        "react/button-has-type": "off",
+        "react/jsx-props-no-spreading": "off",
+        "jsx-a11y/control-has-associated-label": "off",
+        "react/jsx-no-target-blank": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-closing-tag-location": "off",
+        "no-param-reassign": "off",
+        "camelcase": "off",
+        "no-use-before-define": "off",
+        "consistent-return": "off",
+        "jsx-a11y/iframe-has-title": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "react/jsx-no-useless-fragment": "off"
     }
 }

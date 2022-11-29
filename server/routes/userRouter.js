@@ -3,10 +3,10 @@ const Router = require('express');
 const router = Router();
 const authMiddleware = require('../middleware/authMiddleware');
 const {
-  userCheck,
-  getAllUsers,
-  userLogin,
-  userRegistration,
+    userCheck,
+    getAllUsers,
+    userLogin,
+    userRegistration,
 } = require('../controllers/userController');
 
 router.get('/', getAllUsers);

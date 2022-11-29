@@ -1,21 +1,21 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const $host = axios.create({
-    baseURL: 'http://localhost:5000/api/v1'
-})
+    baseURL: 'http://localhost:5000/api/v1',
+});
 
 const $authHost = axios.create({
-    baseURL: 'http://localhost:5000/api/v1'
-})
+    baseURL: 'http://localhost:5000/api/v1',
+});
 
-const authInterceptor = config => {
-    config.headers.authorization = `Bearer ${localStorage.getItem('token')}`
-    return config
-}
+const authInterceptor = (config) => {
+    config.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
+    return config;
+};
 
-$authHost.interceptors.request.use(authInterceptor)
+$authHost.interceptors.request.use(authInterceptor);
 
 export {
     $host,
     $authHost,
-}
+};

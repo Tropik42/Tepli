@@ -1,31 +1,34 @@
-import React, {useEffect, useState} from "react"
-import instance from "../axios/axiosController"
-import {Link} from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
+import instance from '../axios/axiosController';
 
 const NewsList = () => {
-    const [allNews, setNews] = useState([])
+    const [allNews, setNews] = useState([]);
 
     async function getNews() {
         await instance.get('/news')
-            .then(response => setNews(response.data))
+            .then((response) => setNews(response.data));
     }
 
     useEffect(() => {
         getNews();
-    }, );
+    });
 
     return (
         <React.Fragment>
-            {allNews.slice(0).reverse().map(news => (
+            {allNews.slice(0).reverse().map((news) => (
                 <div key={news.newsId} className="wrapper">
                     <div className="container">
                         <div className="col-lg-12">
                             <div className="row news">
                                 <h2 className="h2_header">{news.title}</h2>
-                                <hr/>
+                                <hr />
                                 <div className="col-lg-3 col-md-2 text-center">
-                                    <img className="img-thumbnail img-responsive pull-left" src="img/lumb2.jpg"
-                                         alt="Безумный Макс"/>
+                                    <img
+                                        className="img-thumbnail img-responsive pull-left"
+                                        src="img/lumb2.jpg"
+                                        alt="Безумный Макс"
+                                    />
                                 </div>
                                 <div className="col-lg-9 col-md-10">
                                     <p className="text-justify">{news.body}</p>
@@ -34,12 +37,12 @@ const NewsList = () => {
                                     <Link to={`/news/${news.newsId}`} className="btn btn-lg btn-primary pull-right">Подробнее</Link>
                                 </div>
                             </div>
-                            <div className="margin-5"></div>
+                            <div className="margin-5" />
                         </div>
                     </div>
                 </div>
             ))}
         </React.Fragment>
     );
-}
+};
 export {NewsList};
