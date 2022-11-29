@@ -1,69 +1,74 @@
-import React, {useState, useContext} from "react";
-import {NavLink,useNavigate, useLocation} from "react-router-dom";
-import {Form, Container, Card, Button} from 'react-bootstrap'
-import {registration} from './../http/userApi';
+import React, {useState, useContext} from 'react';
+import {NavLink, useNavigate, useLocation} from 'react-router-dom';
+import {
+    Form, Container, Card, Button,
+} from 'react-bootstrap';
 import {observer} from 'mobx-react-lite';
-import {AuthContext} from '../hoc/AuthProvider'
+import {registration} from '../http/userApi';
+import {AuthContext} from '../hoc/AuthProvider';
 
-const Registration = observer(() =>{
-    const [password, setPassword] = useState('')
-    const [username, setUsername] = useState('')
-    const {user}= useContext(AuthContext)
-    const navigate = useNavigate()
-    const location = useLocation()
-    const goPage = () => navigate(fromPage)
-    const fromPage = location.state?.from?.pathname || '/'
-    const onSubmitForm = async e => {
-        e.preventDefault()
-        try {            
-            const result = await registration(username, password)
+const Registration = observer(() => {
+    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const goPage = () => navigate(fromPage);
+    const fromPage = location.state?.from?.pathname || '/';
+    const onSubmitForm = async (e) => {
+        e.preventDefault();
+        try {
+            const result = await registration(username, password);
             if (!result) {
-                window.alert('логин уже существует или поля остались незаполненными')
-                return false
+                window.alert('логин уже существует или поля остались незаполненными');
+                return false;
             }
-            goPage()
-            user.setUser(user)
-            user.setIsAuth(true)
+            goPage();
+            user.setUser(user);
+            user.setIsAuth(true);
         } catch (err) {
-            console.error(err.message)
+            console.error(err.message);
         }
-    }
+    };
     return (
         <React.Fragment>
-            <Container >
+            <Container>
                 <Card>
-                    <div className='row'>
-                        <h2 className="col-md-6 col-md-offset-3 hello colorite" >Регистрация</h2>
-                        <div className="row col-md-8 col-md-offset-4"></div>
+                    <div className="row">
+                        <h2 className="col-md-6 col-md-offset-3 hello colorite">Регистрация</h2>
+                        <div className="row col-md-8 col-md-offset-4" />
                     </div>
                     <div className="row">
-                    <Form className="col-md-4 col-md-offset-4 form-horizontal" >
-                        <div className="form-group">
-                            <Form.Control className="form-group"
-                            placeholder='Логин...(не менее 5 символов)'
-                            value={username}
-                            required
-                            onChange={e => setUsername(e.target.value)}
-                            />
-                            <Form.Control className="form-group"
-                            placeholder='Пароль...'
-                            type='password'
-                            required
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                            />
-                        </div>
-                        <div className="row">
-                            <div className="form-group colorite text-center">
-                                Есть аккаунт? <NavLink to={'/Auth'}>Войди</NavLink>
+                        <Form className="col-md-4 col-md-offset-4 form-horizontal">
+                            <div className="form-group">
+                                <Form.Control
+                                    className="form-group"
+                                    placeholder="Логин...(не менее 5 символов)"
+                                    value={username}
+                                    required
+                                    onChange={(e) => setUsername(e.target.value)}
+                                />
+                                <Form.Control
+                                    className="form-group"
+                                    placeholder="Пароль..."
+                                    type="password"
+                                    required
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
                             </div>
-                        <Button className="ueb-button  col-md-offset-3 pull-right"
-                            onClick={onSubmitForm}
-                        >
+                            <div className="row">
+                                <div className="form-group colorite text-center">
+                                Есть аккаунт? <NavLink to="/Auth">Войди</NavLink>
+                                </div>
+                                <Button
+                                    className="ueb-button  col-md-offset-3 pull-right"
+                                    onClick={onSubmitForm}
+                                >
                             Зарегистрируйся
-                        </Button>
-                        </div>
-                    </Form>
+                                </Button>
+                            </div>
+                        </Form>
                     </div>
                 </Card>
             </Container>

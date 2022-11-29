@@ -9,6 +9,6 @@ const {
 
 router.get('/', getAllMainPageImg);
 router.get('/:id', getOneMainPageImg);
-router.post('/',createMainPageImg);
+router.post('/', createMainPageImg);
 
 module.exports = router;

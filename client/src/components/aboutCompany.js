@@ -1,17 +1,17 @@
-import React, {useEffect, useState} from "react"
-import instance from "../axios/axiosController"
+import React, {useEffect, useState} from 'react';
+import instance from '../axios/axiosController';
 
 const AboutCompany = () => {
-    const [allAbout, setAbout] = useState([])
+    const [allAbout, setAbout] = useState([]);
 
     const getAbout = async () => {
         try {
-            const {data} = await instance.get('/about')
-            setAbout(data)
+            const {data} = await instance.get('/about');
+            setAbout(data);
         } catch (err) {
-            console.error(err.message)
+            console.error(err.message);
         }
-    }
+    };
 
     useEffect(() => {
         getAbout();
@@ -19,7 +19,7 @@ const AboutCompany = () => {
 
     return (
         <React.Fragment>
-            {allAbout.map(about=>(
+            {allAbout.map((about) => (
                 <div>
                     <h2>
                         {about.body}
@@ -28,6 +28,5 @@ const AboutCompany = () => {
             ))}
         </React.Fragment>
     );
-
-}
+};
 export {AboutCompany};

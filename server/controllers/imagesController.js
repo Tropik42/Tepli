@@ -6,13 +6,14 @@ const queries = require('../queries/mainPage');
 const createMainPageImg = async (req, res) => {
     try {
         const {img} = req.files;
-        let fileName = uuid.v4()+'.jpg';
+        const fileName = `${uuid.v4()}.jpg`;
         img.mv(path.resolve(__dirname, '..', 'static', fileName));
         const createImg = await pool.query(queries.createImages, [fileName]);
 
         return res.json(createImg);
     } catch (err) {
-        console.error(err.message);
+        return (
+            console.error(err.message));
     }
 };
 
