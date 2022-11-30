@@ -21,7 +21,7 @@ const Images = () => {
                     <div className="col-lg-3 col-md-2 text-center">
                         <img
                             className="img-thumbnail img-responsive"
-                            src={`http://localhost:5000/${image.img}`}
+                            src={process.env.REACT_APP_URL + image.img}
                             alt="Безумный Макс"
                         />
                     </div>
