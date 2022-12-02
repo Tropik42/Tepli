@@ -12,6 +12,6 @@ const {
 router.get('/', getAllNews);
 router.get('/:id', getOneNews);
 router.post('/', createNews);
-router.put('/:id', checkRole(true), updateNews);
+router.put('/:id', updateNews);
 
 module.exports = router;
