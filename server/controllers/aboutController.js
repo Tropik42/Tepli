@@ -12,6 +12,20 @@ const getAbout = async (req, res) => {
     }
 };
 
+const updateAbout = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const {body} = req.body;
+        await pool.query(queries.updateAbout, [
+            body, id,
+        ]);
+        res.json(`about №${id} был обновлен`);
+    } catch (err) {
+        console.error(err.message);
+    }
+};
+
 module.exports = {
     getAbout,
+    updateAbout,
 };

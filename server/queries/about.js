@@ -9,5 +9,13 @@ module.exports = {
         ORDER BY
             about_id
     ;`,
+    updateAbout: `
+        UPDATE 
+            about 
+        SET 
+            body = $1
+        WHERE 
+            about_id = $2 
+        ;`,
 /* eslint-disable */
 };
