@@ -52,4 +52,5 @@ INSERT INTO main_page_images (img) VALUES ('9d9a8fdd-c7bd-4a6f-8e29-c0db8cdeb1d9
 INSERT INTO main_page_images (img) VALUES ('c4d6e71d-2c21-4f82-af61-b56fa0f28e47.jpg');
 INSERT INTO main_page_images (img) VALUES ('15093eda-b593-4666-90a9-ccb75814d3f7.jpg');
 
-INSERT INTO about (body) VALUES ('проверка');
+INSERT INTO about (body) VALUES ('абзац для главной страницы');
+INSERT INTO about (body) VALUES ('дополнительная информация');

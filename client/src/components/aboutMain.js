@@ -1,14 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import instance from '../axios/axiosController';
-import EditAbout from './editAbout';
 
-const AboutCompany = () => {
+const AboutMain = () => {
     const [allAbout, setAbout] = useState([]);
 
     const getAbout = async () => {
         try {
             const {data} = await instance.get('/about');
-            setAbout(data);
+            setAbout(data.slice(-1));
         } catch (err) {
             console.error(err.message);
         }
@@ -22,15 +21,12 @@ const AboutCompany = () => {
         <React.Fragment>
             {allAbout.slice(0).reverse().map((about) => (
                 <div key={about.aboutId}>
-                    <h2>
-                        {about.body}
-                    </h2>
                     <div>
-                        <EditAbout about={about} />
+                        {about.body}
                     </div>
                 </div>
             ))}
         </React.Fragment>
     );
 };
-export {AboutCompany};
+export {AboutMain};
