@@ -36,7 +36,7 @@ const NewsList = () => {
                                 </div>
                                 <div className="col-lg-12">
                                     <Link to={`/news/${news.newsId}`} className="btn btn-lg btn-primary pull-right">Подробнее</Link>
-                                    <EditNews news={news} />
+                                    <div><EditNews news={news} /></div>
                                 </div>
                             </div>
                             <div className="margin-5" />

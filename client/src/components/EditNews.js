@@ -1,41 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Container, Button} from 'react-bootstrap';
 import instance from '../axios/axiosController';
 
-class EditNews extends React.Component {
-    state = {
-        newsId: '',
-        newsTitle: this.props.news.newsTitle,
-        newsBody: this.props.news.newsBody,
-    };
+const EditNews = ({news}) => {
 
-    handleChangeTitle = (e) => {
-        this.setState({newsTitle: e.target.value});
-    };
+    const [title, setTitle] = useState(news.title)
+    const [body, setBody] = useState(news.body)
 
-    handleChangeBody = (e) => {
-        this.setState({newsBody: e.target.value});
-    };
-
-    handleUpdate = (e) => {
+    const updateNews  = async (e) => {
         e.preventDefault();
-        instance.put(`/news/${this.state.newsId}`, {
-            title: this.state.newsTitle,
-            body: this.state.newsBody,
-        })
-            .then((res) => {
-                console.log(res);
-            });
-    };
-
-    render() {
-        if (this.state.newsId == '') {
-            this.setState({
-                newsId: this.props.news.newsId,
-                newsTitle: this.props.news.newsTitle,
-                newsBody: this.props.news.newsBody,
-            });
+        const editedNews = {title, body}
+        try {
+            const response = await instance.put(`/news/${news.newsId}`, editedNews);
+            console.log(response);
+        } catch (err) {
+            console.error(err.message);
         }
+    }
+
         return (
             <Container>
 
@@ -44,11 +26,11 @@ class EditNews extends React.Component {
                         type="button"
                         className="btn btn-info btn-lg pull-right"
                         data-toggle="modal"
-                        data-target={`#id${this.props.news.newsId}`}
+                        data-target={`#id${news.newsId}`}
                     >
                 Изменить
                     </Button>
-                    <div className="modal fade" id={`id${this.props.news.newsId}`} role="dialog">
+                    <div className="modal fade" id={`id${news.newsId}`} role="dialog">
                         <div className="modal-dialog">
                             <div className="modal-content">
                                 <div className="modal-header">
@@ -68,8 +50,8 @@ class EditNews extends React.Component {
                                             id="title-name"
                                             className="form-control"
                                             name="title"
-                                            value={this.state.newsTitle}
-                                            onChange={((e) => this.handleChangeTitle(e))}
+                                            value={title}
+                                            onChange={((e) => setTitle(e.target.value))}
                                         />
                                     </div>
                                     <div className="mb-3">
@@ -78,8 +60,8 @@ class EditNews extends React.Component {
                                             id="body-name"
                                             className="form-control"
                                             name="body"
-                                            value={this.state.newsBody}
-                                            onChange={((e) => this.handleChangeBody(e))}
+                                            value={body}
+                                            onChange={((e) => setBody(e.target.value))}
                                         />
                                     </div>
                                     <div className="modal-footer">
@@ -93,7 +75,8 @@ class EditNews extends React.Component {
                                         <Button
                                             className="btn btn-primary"
                                             type="button"
-                                            onClick={(e) => this.handleUpdate(e)}
+                                            data-dismiss="modal"
+                                            onClick={(e) => updateNews(e)}
                                         >
                                     Сохранить
                                         </Button>
@@ -106,7 +89,6 @@ class EditNews extends React.Component {
 
             </Container>
         );
-    }
-}
 
+}
 export default EditNews;
