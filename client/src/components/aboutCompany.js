@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import instance from '../axios/axiosController';
+import EditAbout from './editAbout';
 
 const AboutCompany = () => {
     const [allAbout, setAbout] = useState([]);
@@ -24,6 +25,9 @@ const AboutCompany = () => {
                     <h2>
                         {about.body}
                     </h2>
+                    <div>
+                        <EditAbout about={about} />
+                    </div>
                 </div>
             ))}
         </React.Fragment>
