@@ -61,6 +61,7 @@ const EditAbout = ({about}) => {
                                     className="btn btn-primary"
                                     type="button"
                                     onClick={(e) => updateBody(e)}
+                                    data-dismiss="modal"
                                 >
                             Сохранить
                                 </Button>
