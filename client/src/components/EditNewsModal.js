@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Container, Button} from 'react-bootstrap';
 import instance from '../axios/axiosController';
 
-const EditNews = ({news}) => {
+const EditNewsModal = ({news}) => {
 
     const [title, setTitle] = useState(news.title)
     const [body, setBody] = useState(news.body)
@@ -11,8 +11,7 @@ const EditNews = ({news}) => {
         e.preventDefault();
         const editedNews = {title, body}
         try {
-            const response = await instance.put(`/news/${news.newsId}`, editedNews);
-            console.log(response);
+            await instance.put(`/news/${news.newsId}`, editedNews);
         } catch (err) {
             console.error(err.message);
         }
@@ -34,7 +33,7 @@ const EditNews = ({news}) => {
                         <div className="modal-dialog">
                             <div className="modal-content">
                                 <div className="modal-header">
-                                    <h4 className="modal-title">Че сюда написать? =)</h4>
+                                    <h4 className="modal-title">Редактирование новости</h4>
                                     <Button
                                         type="button"
                                         className="close"
@@ -91,4 +90,4 @@ const EditNews = ({news}) => {
         );
 
 }
-export default EditNews;
+export default EditNewsModal;
