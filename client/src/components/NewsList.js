@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import instance from '../axios/axiosController';
+import EditNewsModal from './EditNewsModal';
 
 const NewsList = () => {
     const [allNews, setNews] = useState([]);
@@ -35,6 +36,7 @@ const NewsList = () => {
                                 </div>
                                 <div className="col-lg-12">
                                     <Link to={`/news/${news.newsId}`} className="btn btn-lg btn-primary pull-right">Подробнее</Link>
+                                    <div><EditNewsModal news={news} /></div>
                                 </div>
                             </div>
                             <div className="margin-5" />
