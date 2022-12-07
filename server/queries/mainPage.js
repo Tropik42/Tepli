@@ -27,5 +27,12 @@ createImages: `
     WHERE 
       image_id = $1
   `,
+  deleteImages: `
+    DELETE
+    FROM 
+      main_page_images 
+    WHERE 
+      image_id = $1
+  `,
  /* eslint-enable */
 };
