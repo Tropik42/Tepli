@@ -20,7 +20,7 @@ const AboutCompany = () => {
 
     return (
         <React.Fragment>
-            {allAbout.slice(0).reverse().map((about) => (
+            {allAbout.map((about) => (
                 <div key={about.aboutId}>
                     <h2>
                         {about.body}

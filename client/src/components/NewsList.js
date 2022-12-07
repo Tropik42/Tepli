@@ -16,7 +16,7 @@ const NewsList = () => {
 
     return (
         <React.Fragment>
-            {allNews.slice(0).reverse().map((news) => (
+            {allNews.map((news) => (
                 <div key={news.newsId} className="wrapper">
                     <div className="container">
                         <div className="col-lg-12">
