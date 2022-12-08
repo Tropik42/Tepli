@@ -2,6 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {SideBarComponent} from '../components/SideBarComponent';
 import {Images} from '../components/imagesMain';
+import {AboutMain} from '../components/aboutMain';
 
 const Index = () => (
     <div>
@@ -58,44 +59,9 @@ const Index = () => (
                     <h2 className="h2_header">О КОМПАНИИ</h2>
                     <hr />
                     <div className="about-company">
-                        <p className="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the standard dummy  1500s,
-                                when an unknown printer took a galley of type and scrambled it to ma
-                                book. It has survived not only five centuries, but also the leap
-                                typesetting, remaining essentially unchanged.
-                                 It was popularised in the 1960s with the
-                                release of Letraset sheets containing
-                                Lorem Ipsum passages, and more recently with
-                                desktop publishing software
-                                 like Aldus PageMaker including versions of Lorem Ipsum.Lorem
-                                Ipsum is simply dummy text
-                                 of the printing and typesetting industry. Lorem Ipsum has
-                                been the s standard dummy
-                                text ever since the 1500s, when an unknown printer
-                                took a galley of type and scrambled it
-                                 to make a type specimen book. It has survived not
-                                only five centuries, but
-                                also the leap into electronic typesetting, remaining
-                                essentially unchanged.
-                                It was popularised in the 1960s with the release of Letraset
-                                sheets containing
-                                Lorem Ipsum passages, and more recently with desktop publishing
-                                software like Aldus PageMaker including versions of Lorem Ipsum.
+                        <p className="text-justify">
+                            <AboutMain />
                         </p>
-                    </div>
-                    <div className="about-company hidden-xs">
-                        <p className="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the
-                                standard dummy text ever since the 1500s,
-                                when an unknown printer took a galley of
-                                type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries,
-                                but also the leap into electronic
-                                typesetting, remaining essentially unchanged.
-                                It was popularised in the 1960s with the
-                                release of Letraset sheets containing Lorem
-                                Ipsum passages, and more recently with
-                                desktop publishing software like Aldus </p>
                     </div>
                     <div className="learn_more">
                         <p className="text-right"><NavLink to="/About">Узнать о компании больше</NavLink></p>

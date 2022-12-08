@@ -7,7 +7,7 @@ module.exports = {
         FROM 
             about
         ORDER BY
-            about_id
+            about_id DESC
     ;`,
     updateAbout: `
         UPDATE 

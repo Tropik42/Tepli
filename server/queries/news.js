@@ -10,7 +10,7 @@ module.exports = {
         FROM 
             news 
         ORDER BY 
-            news_id
+            news_id DESC
         ;`,
 
     getOneNews: `
