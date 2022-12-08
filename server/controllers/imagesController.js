@@ -1,5 +1,6 @@
 const uuid = require('uuid');
 const path = require('path');
+const fs = require('fs');
 const pool = require('../db');
 const queries = require('../queries/mainPage');
 
@@ -22,7 +23,7 @@ const getAllMainPageImg = async (req, res) => {
         const allImg = await pool.query(
             queries.getAllImages,
         );
-        res.json(allImg.rows);
+        return (res.json(allImg.rows));
     } catch (err) {
         console.error(err.message);
     }
@@ -34,7 +35,27 @@ const getOneMainPageImg = async (req, res) => {
         const singleImg = await pool.query(queries.getOneImages, [
             id,
         ]);
-        res.json(singleImg.rows[0]);
+        return (res.json(singleImg.rows[0]));
+    } catch (err) {
+        console.error(err.message);
+    }
+};
+
+const deleteImages = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const delImg = await pool.query(queries.deleteImages, [
+            id,
+        ]);
+        const fileName = delImg.rows[0].img;
+        await fs.unlink(path.resolve(__dirname, '..', 'static', fileName), (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('Файл удалён');
+            }
+        });
+        return (res.json(delImg.rows[0]));
     } catch (err) {
         console.error(err.message);
     }
@@ -44,4 +65,5 @@ module.exports = {
     createMainPageImg,
     getAllMainPageImg,
     getOneMainPageImg,
+    deleteImages,
 };
