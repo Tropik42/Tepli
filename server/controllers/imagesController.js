@@ -40,6 +40,7 @@ const getOneMainPageImg = async (req, res) => {
         console.error(err.message);
     }
 };
+
 const deleteImages = async (req, res) => {
     try {
         const {id} = req.params;
