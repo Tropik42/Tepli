@@ -33,6 +33,8 @@ createImages: `
       main_page_images 
     WHERE 
       image_id = $1
+    RETURNING 
+      img
   `,
  /* eslint-enable */
 };

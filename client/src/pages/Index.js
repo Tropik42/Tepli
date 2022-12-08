@@ -2,7 +2,6 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {SideBarComponent} from '../components/SideBarComponent';
 import {Images} from '../components/imagesMain';
-import {ImageUpload} from '../components/imageUploadMain';
 
 const Index = () => (
     <div>
@@ -102,7 +101,6 @@ const Index = () => (
                         <p className="text-right"><NavLink to="/About">Узнать о компании больше</NavLink></p>
                     </div>
                     <div className="margin-5" />
-                    <ImageUpload />
                     <div className="row">
                         <Images />
                     </div>

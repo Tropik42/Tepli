@@ -23,7 +23,7 @@ const getAllMainPageImg = async (req, res) => {
         const allImg = await pool.query(
             queries.getAllImages,
         );
-        res.json(allImg.rows);
+        return (res.json(allImg.rows));
     } catch (err) {
         console.error(err.message);
     }
@@ -35,8 +35,7 @@ const getOneMainPageImg = async (req, res) => {
         const singleImg = await pool.query(queries.getOneImages, [
             id,
         ]);
-        res.json(singleImg.rows[0]);
-        console.log(singleImg.rows[0].img);
+        return (res.json(singleImg.rows[0]));
     } catch (err) {
         console.error(err.message);
     }
@@ -44,10 +43,10 @@ const getOneMainPageImg = async (req, res) => {
 const deleteImages = async (req, res) => {
     try {
         const {id} = req.params;
-        const singleImg = await pool.query(queries.getOneImages, [
+        const delImg = await pool.query(queries.deleteImages, [
             id,
         ]);
-        const fileName = singleImg.rows[0].img;
+        const fileName = delImg.rows[0].img;
         await fs.unlink(path.resolve(__dirname, '..', 'static', fileName), (err) => {
             if (err) {
                 console.log(err);
@@ -55,10 +54,7 @@ const deleteImages = async (req, res) => {
                 console.log('Файл удалён');
             }
         });
-        const delImg = await pool.query(queries.deleteImages, [
-            id,
-        ]);
-        res.json(delImg.rows[0]);
+        return (res.json(delImg.rows[0]));
     } catch (err) {
         console.error(err.message);
     }
