@@ -16,7 +16,7 @@ const EditMainImg = () => {
     };
     useEffect(() => {
         getImages();
-    }, []);
+    });
 
     return (
         <React.Fragment>
