@@ -4,9 +4,19 @@ import instance from '../axios/axiosController';
 
 const ImageUpload = () => {
     const [image, setImage] = useState('');
-    function handleImage(e) {
-        console.log(e.target.files);
-        setImage(e.target.files[0]);
+    const [imgUrl, setImgURL] = useState('');
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+        setImgURL(fileReader.result);
+    };
+    console.log(imgUrl);
+    function handleImage(event) {
+        event.preventDefault();
+        if (event.target.files && event.target.files.length) {
+            const file = event.target.files[0];
+            setImage(file);
+            fileReader.readAsDataURL(file);
+        }
     }
     const handleApi = async () => {
         const formData = new FormData();
@@ -14,18 +24,28 @@ const ImageUpload = () => {
         await instance.post('/', formData);
     };
     return (
-        <div>
-            <input
-                type="file"
-                name="file"
-                onChange={handleImage}
-                accept="image/*, .png, .jpg"
-            />
-            <Button onClick={handleApi}>
-            отправить
-            </Button>
-        </div>
+        <React.Fragment>
+            <div>
+                <input
+                    type="file"
+                    name="file"
+                    onChange={handleImage}
+                    accept="image/*, .png, .jpg"
+                    multiple
+                />
+                <Button onClick={handleApi}>
+                отправить
+                </Button>
+            </div>
+            <div>
+                <img
+                    className="img-thumbnail img-responsive"
+                    src={imgUrl}
+                    alt="Безумный Макс"
+                />
+            </div>
+        </React.Fragment>
     );
 };
 
-export {ImageUpload};
+export default ImageUpload;

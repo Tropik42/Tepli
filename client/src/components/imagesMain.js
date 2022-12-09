@@ -14,7 +14,7 @@ const Images = () => {
     };
     useEffect(() => {
         getImages();
-    });
+    }, []);
     return (
         <React.Fragment>
             {allImages.map((image) => (
