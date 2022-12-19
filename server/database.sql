@@ -47,10 +47,14 @@ VALUES (
 INSERT INTO news (title, body) VALUES ('proverka','proverkakartinok');
 INSERT INTO images (news_id, img) VALUES ('1','pathone');
 
-INSERT INTO main_page_images (img) VALUES ('b8333b36-81f0-4462-9d04-b2f6ea29b74e.jpg');
-INSERT INTO main_page_images (img) VALUES ('9d9a8fdd-c7bd-4a6f-8e29-c0db8cdeb1d9.jpg');
-INSERT INTO main_page_images (img) VALUES ('c4d6e71d-2c21-4f82-af61-b56fa0f28e47.jpg');
-INSERT INTO main_page_images (img) VALUES ('15093eda-b593-4666-90a9-ccb75814d3f7.jpg');
+INSERT INTO main_page_images (img) VALUES ('d69ab00a-fe84-4425-acdd-e0794d1203c7.jpg');
+INSERT INTO main_page_images (img) VALUES ('2563d3e1-b2f7-4a6d-88e9-0bd6a83cfbc2.jpg');
+INSERT INTO main_page_images (img) VALUES ('65044516-4b80-4585-8126-bc0e5a4d3f06.jpg');
+INSERT INTO main_page_images (img) VALUES ('05a59c7b-731b-4e28-afad-6da3c9061f46.jpg');
+INSERT INTO main_page_images (img) VALUES ('72ec7219-905a-4e35-a7ab-afef9731deb4.jpg');
+INSERT INTO main_page_images (img) VALUES ('8ec7509b-80e2-4642-b4e2-c46d11a36503.jpg');
+INSERT INTO main_page_images (img) VALUES ('f9599e1b-2265-4f6c-8352-3628f1dd9cda.jpg');
+INSERT INTO main_page_images (img) VALUES ('a18b25a5-0024-4e0b-9381-37567be09732.jpg');
 
 INSERT INTO about (body) VALUES ('абзац для главной страницы');
 INSERT INTO about (body) VALUES ('дополнительная информация');

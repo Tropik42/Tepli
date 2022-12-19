@@ -61,9 +61,37 @@ const deleteImages = async (req, res) => {
     }
 };
 
+const updateImages = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const {img} = req.files;
+        const singleImg = await pool.query(queries.getOneImages, [
+            id,
+        ]);
+        const fileDelName = singleImg.rows[0].img;
+        console.log(fileDelName);
+        await fs.unlink(path.resolve(__dirname, '..', 'static', fileDelName), (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('Файл удалён');
+            }
+        });
+        const fileName = `${uuid.v4()}.jpg`;
+        img.mv(path.resolve(__dirname, '..', 'static', fileName));
+        const createImg = await pool.query(queries.updateImages, [fileName, id]);
+
+        return res.json(createImg);
+    } catch (err) {
+        return (
+            console.error(err.message));
+    }
+};
+
 module.exports = {
     createMainPageImg,
     getAllMainPageImg,
     getOneMainPageImg,
     deleteImages,
+    updateImages,
 };

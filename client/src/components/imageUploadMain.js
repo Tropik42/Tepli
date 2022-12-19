@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {Button} from 'react-bootstrap';
 import instance from '../axios/axiosController';
 
-const ImageUpload = () => {
-    const [image, setImage] = useState('');
+const ImageUpload = ({image}) => {
+    const filePicker = useRef(null);
+    const [img, setImage] = useState('');
     const [imgUrl, setImgURL] = useState('');
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
@@ -20,28 +21,35 @@ const ImageUpload = () => {
     }
     const handleApi = async () => {
         const formData = new FormData();
-        formData.append('img', image);
-        await instance.post('/', formData);
+        formData.append('img', img);
+        await instance.put(`/${image.imageId}`, formData);
+        setImgURL('');
+    };
+    const handlePick = () => {
+        filePicker.current.click();
     };
     return (
         <React.Fragment>
             <div>
+                <Button onClick={handlePick}>
+                выбрать файл
+                </Button>
                 <input
+                    className="hidden"
                     type="file"
                     name="file"
                     onChange={handleImage}
                     accept="image/*, .png, .jpg"
-                    multiple
+                    ref={filePicker}
                 />
-                <Button onClick={handleApi}>
-                отправить
+                <Button className="marginImg" onClick={handleApi}>
+                заменить
                 </Button>
             </div>
             <div>
                 <img
-                    className="img-thumbnail img-responsive"
+                    className="img-add  img-responsive"
                     src={imgUrl}
-                    alt="Безумный Макс"
                 />
             </div>
         </React.Fragment>

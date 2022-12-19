@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Button} from 'react-bootstrap';
 import instance from '../axios/axiosController';
-import DeleteImg from './deleteMainImg';
 import ImageUpload from './imageUploadMain';
 
 const EditMainImg = () => {
@@ -43,23 +42,21 @@ const EditMainImg = () => {
                                 &times;
                                     </Button>
                                 </div>
-                                <div className="modal-body">
-                                    <ImageUpload />
-                                </div>
                                 <div className="modal-footer">
                                     {allImages.map((image) => (
                                         <div key={image.imageId}>
-                                            <div className="col-lg-3 col-md-2 text-center">
+                                            <div className="col-lg-3 col-md-4 text-center">
                                                 <img
-                                                    className="img-thumbnail img-responsive"
+                                                    className="marginImg img-thumbnail img-responsive"
                                                     src={process.env.REACT_APP_URL + image.img}
                                                     alt="Безумный Макс"
                                                 />
-                                                <DeleteImg image={image} />
+                                                <ImageUpload image={image} />
                                             </div>
                                         </div>
                                     ))}
                                 </div>
+                                <div className="modal-footer" />
                             </div>
                         </div>
                     </div>
