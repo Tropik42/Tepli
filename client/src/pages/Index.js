@@ -3,6 +3,8 @@ import {NavLink} from 'react-router-dom';
 import {SideBarComponent} from '../components/SideBarComponent';
 import {Images} from '../components/imagesMain';
 import {AboutMain} from '../components/aboutMain';
+// eslint-disable-next-line import/named
+import {EditMainImg} from '../components/editMainImg';
 
 const Index = () => (
     <div>
@@ -68,6 +70,7 @@ const Index = () => (
                     </div>
                     <div className="margin-5" />
                     <div className="row">
+                        <EditMainImg />
                         <Images />
                     </div>
                 </div>

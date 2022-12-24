@@ -36,5 +36,13 @@ createImages: `
     RETURNING 
       img
   `,
+  updateImages: `
+    UPDATE 
+      main_page_images 
+    SET 
+      img = $1
+    WHERE 
+      image_id = $2   
+    ;`,
  /* eslint-enable */
 };

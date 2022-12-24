@@ -18,7 +18,7 @@ const DeleteImg = ({image}) => {
                 type="button"
                 className="btn btn-info btn-lg pull-right"
                 onClick={(e) => delImg(e)}
-            >удалить
+            >&times;
             </Button></div>
     );
 };

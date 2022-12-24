@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import instance from '../axios/axiosController';
-import DeleteImg from './deleteMainImg';
 
 const Images = () => {
     const [allImages, setImages] = useState([]);
@@ -14,20 +13,17 @@ const Images = () => {
     };
     useEffect(() => {
         getImages();
-    });
+    }, []);
     return (
         <React.Fragment>
             {allImages.map((image) => (
                 <div key={image.imageId}>
                     <div className="col-lg-3 col-md-2 text-center">
                         <img
-                            className="img-thumbnail img-responsive"
+                            className="marginImg img-thumbnail img-responsive"
                             src={process.env.REACT_APP_URL + image.img}
                             alt="Безумный Макс"
                         />
-                        <div>
-                            <DeleteImg image={image} />
-                        </div>
                     </div>
                 </div>
             ))}
