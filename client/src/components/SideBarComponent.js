@@ -7,7 +7,7 @@ const SideBarComponent = () => {
 
     async function getNews() {
         await instance.get('/news')
-            .then((response) => setNews(response.data.slice(-5)));
+            .then((response) => setNews(response.data));
     }
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const SideBarComponent = () => {
 
     return (
         <div>
-            {(allNews.slice(0).reverse().map((news) => (
+            {(allNews.slice(0, 5).map((news) => (
                 <React.Fragment key={news.newsId}>
                     <div className="wrapper">
                         <Link to={`/news/${news.newsId}`}><h4>{news.title}</h4></Link>

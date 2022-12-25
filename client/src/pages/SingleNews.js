@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import instance from '../axios/axiosController';
+import EditNewsModal from '../components/EditNewsModal';
 
 const SingleNews = () => {
     const {id} = useParams();
@@ -27,6 +28,9 @@ const SingleNews = () => {
                 src="../img/lumb2.jpg"
                 alt="Безумный Макс"
             />
+            <span className="pull-left">
+                <EditNewsModal news={singleNews} />
+            </span>
         </div>
     );
 };
