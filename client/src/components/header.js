@@ -10,7 +10,7 @@ const Header = () => (
                 <div className="container row">
                     <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 logo">
                         <a href="index.html">
-                            <img src="img/logo.png" className="logo_img" alt="" />
+                            <img src="/img/logo.png" className="logo_img" alt="" />
                         </a>
                     </div>
                     <div className="phone col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -37,7 +37,7 @@ const Header = () => (
                         </div>
                         <div className="partner-name text-center col-sm-12">
                             <a href="https://www.deltalight.com/ru">
-                                <img src="img/logo_deltalight.png" className="logo_del" alt="" />
+                                <img src="/img/logo_deltalight.png" className="logo_del" alt="" />
                             </a>
                         </div>
                         <div className="dealer_href">
