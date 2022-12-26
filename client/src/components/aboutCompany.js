@@ -1,10 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
+import {observer} from 'mobx-react-lite';
 import instance from '../axios/axiosController';
 import EditAbout from './editAbout';
+import {AuthContext} from '../hoc/AuthProvider';
 
-const AboutCompany = () => {
+const AboutCompany = observer(() => {
     const [allAbout, setAbout] = useState([]);
-
+    const {user} = useContext(AuthContext);
     const getAbout = async () => {
         try {
             const {data} = await instance.get('/about');
@@ -25,12 +27,10 @@ const AboutCompany = () => {
                     <h2>
                         {about.body}
                     </h2>
-                    <div>
-                        <EditAbout about={about} />
-                    </div>
+                    {user.isAdmin ? (<div><EditAbout about={about} /></div>) : (<div />)}
                 </div>
             ))}
         </React.Fragment>
     );
-};
+});
 export {AboutCompany};
