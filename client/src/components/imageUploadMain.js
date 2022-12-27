@@ -10,7 +10,6 @@ const ImageUpload = ({image}) => {
     fileReader.onloadend = () => {
         setImgURL(fileReader.result);
     };
-    console.log(imgUrl);
     function handleImage(event) {
         event.preventDefault();
         if (event.target.files && event.target.files.length) {

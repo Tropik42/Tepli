@@ -1,6 +1,7 @@
 import React, {useContext, useState, useEffect} from 'react';
 import {Route, Routes} from 'react-router-dom';
 import {observer} from 'mobx-react-lite';
+import jwt_decode from 'jwt-decode';
 import {About} from './pages/About';
 import {Catalog} from './pages/Catalog';
 import {Contacts} from './pages/Contacts';
@@ -19,12 +20,15 @@ import {RequireMain} from './hoc/RequireMain';
 const App = observer(() => {
     const {user} = useContext(AuthContext);
     const [loading, setLoading] = useState(true);
+    // eslint-disable-next-line max-len
+    const asd = jwt_decode(localStorage.getItem('token') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJ1c2VybmFtZSI6ImNoeWdhMiIsImlzQWRtaW4iOmZhbHNlfSwiaWF0IjoxNjcxOTgzNDU1LCJleHAiOjE2NzE5OTQyNTV9.WrOyMosaVVLl2Ke6Zo4k_M2phFdsbyHrD7BaUVc06hM');
     useEffect(() => {
-        check().then((token) => {
+        check().then((data) => {
             user.setUser(true);
             user.setIsAuth(true);
+            user.setIsAdmin(asd.user.isAdmin);
         }).finally(() => setLoading(false));
-    }, [user]);
+    }, []);
     if (loading) { return console.log('загрузка'); }
     return (
         <div className="container pt-4">

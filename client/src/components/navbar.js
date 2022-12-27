@@ -11,10 +11,12 @@ const Navbar = observer(() => {
     const logOut = () => {
         user.setUser({});
         user.setIsAuth(false);
+        user.setIsAdmin(false);
         localStorage.removeItem('token');
     };
     return (
         <div className="hello">
+            {user.isAdmin ? (<div>хуй</div>) : (<div>залупа</div>)}
             <div className="container">
                 {user.isAuth
                     ? (

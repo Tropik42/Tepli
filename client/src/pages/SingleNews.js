@@ -1,10 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {useParams} from 'react-router-dom';
+import {observer} from 'mobx-react-lite';
 import instance from '../axios/axiosController';
 import EditNewsModal from '../components/EditNewsModal';
+import {AuthContext} from '../hoc/AuthProvider';
 
-const SingleNews = () => {
+const SingleNews = observer(() => {
     const {id} = useParams();
+    const {user} = useContext(AuthContext);
     const [singleNews, setSingleNews] = useState([]);
 
     const getOneNews = async () => {
@@ -20,19 +23,21 @@ const SingleNews = () => {
     });
 
     return (
-        <div className="col-md-6 col-md-offset-3">
-            <h1 className="hello colorite">{singleNews.title}</h1>
-            <p className="hello colorite">{singleNews.body}</p>
-            <img
-                className="img-thumbnail img-responsive pull-left"
-                src="../img/lumb2.jpg"
-                alt="Безумный Макс"
-            />
-            <span className="pull-left">
-                <EditNewsModal news={singleNews} />
-            </span>
+        <div className="container">
+            <div className="col-md-6 col-md-offset-3">
+                <h1 className="hello colorite">{singleNews.title}</h1>
+                <p className="hello colorite">{singleNews.body}</p>
+                <img
+                    className="img-thumbnail img-responsive pull-left"
+                    src="../img/lumb2.jpg"
+                    alt="Безумный Макс"
+                />
+                <div className="pull-left">
+                    {user.isAdmin ? (<EditNewsModal news={singleNews} />) : (<div />)}
+                </div>
+            </div>
         </div>
     );
-};
+});
 
 export {SingleNews};

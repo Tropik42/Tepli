@@ -33,7 +33,7 @@ const userRegistration = async (req, res) => {
             queries.createUser,
             [username, bcryptPassword],
         );
-        const {userId, isAdmin} = newUser.rows[0];
+        const {userId, isAdmin = false} = newUser.rows[0];
         const token = jwtGenerator(userId, username, isAdmin);
         return res.json({token});
     } catch (err) {
@@ -64,7 +64,7 @@ const userLogin = async (req, res) => {
 };
 
 const userCheck = async (req, res) => {
-    const token = jwtGenerator(req.user.id, req.user.username, req.user.isadmin);
+    const token = jwtGenerator(req.user.id, req.user.username, req.user.isAdmin);
     return res.json({token});
 };
 
