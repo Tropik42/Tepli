@@ -32,6 +32,12 @@ CREATE TABLE about(
     ,body           TEXT                NOT NULL
 );
 
+CREATE TABLE price(
+     price_id       SERIAL PRIMARY KEY
+    ,price_name      VARCHAR(255)       
+    ,price_path      VARCHAR(255)       NOT NULL
+);
+
 INSERT INTO users (user_name, user_password) VALUES ('user', 'userpassword');
 INSERT INTO users (
   user_name,
@@ -58,3 +64,6 @@ INSERT INTO main_page_images (img) VALUES ('a18b25a5-0024-4e0b-9381-37567be09732
 
 INSERT INTO about (body) VALUES ('абзац для главной страницы');
 INSERT INTO about (body) VALUES ('дополнительная информация');
+
+INSERT INTO price (price_name, price_path) VALUES ('pdf', 'aaaaaaaaaaaa');
+INSERT INTO price (price_name, price_path) VALUES ('xls', 'bbbbbbbbbbbb');

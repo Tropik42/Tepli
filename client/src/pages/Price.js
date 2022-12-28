@@ -1,4 +1,5 @@
 import React from 'react';
+import {PriceList} from '../components/price';
 
 const Price = () => (
     <div>
@@ -28,6 +29,9 @@ const Price = () => (
                         <a href="files/Price_essentials.xlsx" download="">
                             <button type="button" className="btn btn-primary btn-lg btn_xls">Дополнительная серия продукции Essentials XLS <i className="fas fa-download" /></button>
                         </a>
+                    </div>
+                    <div>
+                        <PriceList />
                     </div>
                 </div>
             </div>
