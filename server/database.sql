@@ -65,7 +65,7 @@ INSERT INTO main_page_images (img) VALUES ('a18b25a5-0024-4e0b-9381-37567be09732
 INSERT INTO about (body) VALUES ('абзац для главной страницы');
 INSERT INTO about (body) VALUES ('дополнительная информация');
 
-INSERT INTO price (price_name, price_path) VALUES ('Скачать основной прайс PDF', 'proverkaPrice.pdf');
+INSERT INTO price (price_name, price_path) VALUES ('Основной прайс PDF', 'proverkaPrice.pdf');
 INSERT INTO price (price_name, price_path) VALUES ('Дополнительная серия продукции Essentials PDF', 'Price_essentials.pdf');
-INSERT INTO price (price_name, price_path) VALUES ('Скачать основной прайс XLS', 'Price_main.xlsx');
+INSERT INTO price (price_name, price_path) VALUES ('Основной прайс XLS', 'Price_main.xlsx');
 INSERT INTO price (price_name, price_path) VALUES ('Дополнительная серия продукции Essentials XLS', 'Price_essentials.xls');

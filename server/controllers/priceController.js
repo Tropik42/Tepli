@@ -34,7 +34,6 @@ const updateFilePrice = async (req, res) => {
             id,
         ]);
         const fileDelName = singleFile.rows[0].pricePath;
-        console.log(fileDelName);
         await fs.unlink(path.resolve(__dirname, '..', 'static', fileDelName), (err) => {
             if (err) {
                 console.log(err);
@@ -43,6 +42,7 @@ const updateFilePrice = async (req, res) => {
             }
         });
         const fileName = pricePath.name;
+        console.log(pricePath);
         pricePath.mv(path.resolve(__dirname, '..', 'static', fileName));
         const createFile = await pool.query(queries.updateFilePrice, [fileName, id]);
 
