@@ -6,7 +6,20 @@ const getAllNews = async (req, res) => {
         const allNews = await pool.query(
             queries.getAllNews,
         );
-        res.json(allNews.rows);
+        const result = allNews.rows.reduce((acc, el) => {
+            const index = acc.findIndex(({newsId}) => newsId === el.newsId);
+            if (index === -1) {
+                acc.push({
+                    ...el,
+                    img: [el.img],
+                })
+            } else {
+                acc[index].img.push(el.img);
+            }
+            return acc;
+        }, []);
+
+        res.json(result);
     } catch (err) {
         console.error(err.message);
     }

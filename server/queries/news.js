@@ -2,15 +2,19 @@ module.exports = {
 /* eslint-disable */
     getAllNews: `
         SELECT
-             news_id                                AS "newsId"
+             n.news_id                              AS "newsId"
             ,TO_CHAR(create_datetime, 'DD.MM.YYYY') AS "newsDate"
-            ,title
-            ,body
-            ,state
+            ,n.title
+            ,n.body
+            ,n.state
+            ,i.img      
+
         FROM 
-            news 
+            news AS n
+            LEFT JOIN images AS i ON n.news_id = i.news_id   
+
         ORDER BY 
-            news_id DESC
+            n.news_id DESC
         ;`,
 
     getOneNews: `
@@ -77,5 +81,6 @@ module.exports = {
             news AS n           
             LEFT JOIN images AS i ON n.news_id = i.news_id   
         ;`,
+
 /* eslint-enable */
 };
