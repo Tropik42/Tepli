@@ -3,8 +3,8 @@ module.exports = {
     getAllPrice: `
     SELECT 
              price_id  AS "priceId"
-            ,price_name   
-            ,price_path   
+            ,price_name  AS "priceName" 
+            ,price_path  AS "pricePath" 
     FROM 
             price
     ORDER BY
@@ -24,9 +24,9 @@ module.exports = {
     UPDATE 
       price 
     SET 
-      price_path = $1
+      price_path = $1 
     WHERE 
-      price_id = $2   
+      price_id = $2  
     ;`,
         /* eslint-disable */
 };
