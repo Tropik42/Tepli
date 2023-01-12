@@ -18,12 +18,12 @@ CREATE TABLE news(
 CREATE TABLE images(
     image_id       SERIAL PRIMARY KEY
    ,news_id        INT REFERENCES news (news_id)
-   ,img            VARCHAR(255)         NOT NULL
+   ,img            VARCHAR(255)
 );
 
 CREATE TABLE main_page_images(
     image_id        SERIAL PRIMARY KEY
-   ,img             VARCHAR(255)         NOT NULL
+   ,img             VARCHAR(255)
    ,create_datetime TIMESTAMPTZ          DEFAULT NOW()
 );
 

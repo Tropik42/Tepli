@@ -1,20 +1,25 @@
 import React, {useState} from 'react';
 import {Container, Button} from 'react-bootstrap';
 import instance from '../axios/axiosController';
-import ImageUpload from './imageUploadMain';
 
 const CreateNewsModal = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
+    const [img, setImg] = useState(null);
+
+    const selectImg = (e) => {
+        setImg(e.target.files[0]);
+    };
 
     const onSubmitForm = async (e) => {
         e.preventDefault();
         try {
-            const postNews = {title, body};
-            const result = await instance.post('/news', postNews);
+            const formData = new FormData();
+            formData.append('img', img);
+            formData.append('title', title);
+            formData.append('body', body);
+            const result = await instance.post('/news', formData);
             console.log(result);
-            setTitle('');
-            setBody('');
         } catch (e) {
             console.log(e.message());
         }
@@ -66,6 +71,12 @@ const CreateNewsModal = () => {
                                     </div>
                                     <div className="mb-3">
                                         <label className="col-form-label" htmlFor="title-name">Вставить иллюстрацию</label>
+                                        <input
+                                            type="file"
+                                            name="file"
+                                            accept="image/*, .png, .jpg"
+                                            onChange={selectImg}
+                                        />
                                     </div>
                                 </div>
                             </div>

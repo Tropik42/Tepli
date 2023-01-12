@@ -1,3 +1,5 @@
+const uuid = require('uuid');
+const path = require('path');
 const pool = require('../db');
 const queries = require('../queries/news');
 
@@ -12,7 +14,7 @@ const getAllNews = async (req, res) => {
                 acc.push({
                     ...el,
                     img: [el.img],
-                })
+                });
             } else {
                 acc[index].img.push(el.img);
             }
@@ -40,10 +42,13 @@ const getOneNews = async (req, res) => {
 const createNews = async (req, res) => {
     try {
         const {title, body} = req.body;
+        const {img} = req.files;
+        const fileName = `${uuid.v4()}.jpg`;
+        img.mv(path.resolve(__dirname, '..', 'static', fileName));
         const createNews = await pool.query(queries.createNews, [
-            title, body,
+            title, body, fileName,
         ]);
-        res.json(createNews.rows);
+        return res.json(createNews);
     } catch (err) {
         console.error(err.message);
     }
@@ -52,9 +57,9 @@ const createNews = async (req, res) => {
 const updateNews = async (req, res) => {
     try {
         const {id} = req.params;
-        const {title, body} = req.body;
+        const {title, body, img} = req.body;
         await pool.query(queries.updateNews, [
-            title, body, id,
+            title, body, id, img,
         ]);
         res.json(`Новость №${id} была обновлена`);
     } catch (err) {

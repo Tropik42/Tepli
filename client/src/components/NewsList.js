@@ -13,7 +13,7 @@ const NewsList = () => {
 
     useEffect(() => {
         getNews();
-    });
+    }, []);
 
     return (
         <React.Fragment>
@@ -27,7 +27,7 @@ const NewsList = () => {
                                 <div className="col-lg-3 col-md-2 text-center">
                                     <img
                                         className="img-thumbnail img-responsive pull-left"
-                                        src="img/lumb2.jpg"
+                                        src={process.env.REACT_APP_URL + news.img}
                                         alt="Безумный Макс"
                                     />
                                 </div>

@@ -8,69 +8,68 @@ module.exports = {
             ,n.body
             ,n.state
             ,i.img      
-
         FROM 
             news AS n
-            LEFT JOIN images AS i ON n.news_id = i.news_id   
-
+            LEFT JOIN images AS i ON n.news_id = i.news_id
         ORDER BY 
             n.news_id DESC
         ;`,
 
     getOneNews: `
         SELECT 
-             news_id                                AS "newsId"
+             n.news_id                              AS "newsId"
             ,TO_CHAR(create_datetime, 'DD.MM.YYYY') AS "newsDate"
-            ,title
-            ,body
-            ,state
+            ,n.title
+            ,n.body
+            ,n.state
+            ,i.img      
         FROM 
-            news 
+            news AS n
+            LEFT JOIN images AS i ON n.news_id = i.news_id   
         WHERE 
-            news_id = $1
+            n.news_id = $1
+        ORDER BY 
+            n.news_id DESC
         ;`,
 
     createNews: `
+        WITH insert_news AS ( 
         INSERT INTO news (
              title
             ,body
-        )
+           )
         VALUES (
              $1
             ,$2
+          )
+        RETURNING news_id
         )
-        RETURNING 
-             news_id          AS "newsId"
-            ,create_datetime  AS "newsDate"
-            ,title
-            ,body
-            ,state
+        INSERT INTO images (
+            news_id
+           ,img
+           )
+        VALUES (
+             (SELECT news_id FROM insert_news)
+            ,$3
+           )
         ;`,
 
+
     updateNews: `
-        UPDATE 
-            news 
-        SET 
+        WITH update_news AS (
+        UPDATE news SET 
             title = $1
            ,body  = $2 
         WHERE 
             news_id = $3
+        RETURNING news_id
+        )
+        UPDATE images SET 
+            img = $4
+        WHERE 
+            news_id = (SELECT news_id FROM update_news)
         ;`,
 
-    createImage: `
-        INSERT INTO images (
-             news_id
-            ,img
-        )
-        VALUES (
-             $1
-            ,$2
-        )
-        RETURNING 
-             image_id AS "imageId"
-            ,news_id  AS "newsId"
-            ,img      
-        ;`,
 
     getNewsImages: `
         SELECT

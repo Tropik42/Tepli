@@ -25,7 +25,7 @@ const SingleNews = () => {
             <p className="hello colorite">{singleNews.body}</p>
             <img
                 className="img-thumbnail img-responsive pull-left"
-                src="../img/lumb2.jpg"
+                src={process.env.REACT_APP_URL + singleNews.img}
                 alt="Безумный Макс"
             />
             <span className="pull-left">
