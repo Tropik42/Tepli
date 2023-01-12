@@ -2,10 +2,11 @@ import React, {useEffect, useState, useContext} from 'react';
 import {observer} from 'mobx-react-lite';
 import instance from '../axios/axiosController';
 import EditContacts from './editContacts';
-// import {AuthContext} from '../hoc/AuthProvider';
+import {AuthContext} from '../hoc/AuthProvider';
 
 const ContactList = observer(() => {
     const [allContacts, setContacts] = useState([]);
+    const {user} = useContext(AuthContext);
     const getContacts = async () => {
         try {
             const {data} = await instance.get('/contacts');
@@ -14,7 +15,6 @@ const ContactList = observer(() => {
             console.error(err.message);
         }
     };
-    // console.log(allContacts);
     useEffect(() => {
         getContacts();
     }, []);
@@ -22,7 +22,7 @@ const ContactList = observer(() => {
         <React.Fragment>
             {allContacts.map((cont) => (
                 <div key={cont.contId}>
-                    <EditContacts cont={cont} />
+                    {user.isAdmin ? (<div><EditContacts cont={cont} /></div>) : (<div />)}
                     <div>
                         <div className="wrapper">
                             <div className="container">

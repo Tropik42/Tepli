@@ -16,7 +16,6 @@ const Navbar = observer(() => {
     };
     return (
         <div className="hello">
-            {user.isAdmin ? (<div>хуй</div>) : (<div>залупа</div>)}
             <div className="container">
                 {user.isAuth
                     ? (
