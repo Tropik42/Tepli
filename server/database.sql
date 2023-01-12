@@ -52,6 +52,67 @@ VALUES (
 
 INSERT INTO news (title, body) VALUES ('proverka','proverkakartinok');
 INSERT INTO images (news_id, img) VALUES ('1','pathone');
+INSERT INTO contacts (data) VALUES ('{
+  "phone":
+[
+  {
+    "id" : 1,
+    "num" : "(499) 128 94 91"
+  }
+  ,{
+    "id" : 2,
+    "num" : "(499) 128 81 27"
+  }
+  ,{
+    "id" : 3,
+    "num" : "(499) 128 82 07"
+  }
+  ,{
+    "id": 4,
+    "num" : "+7 (999) 880 27 03"
+  }
+]
+, "email": 
+[
+  {
+    "id" : 1,
+    "ref" : "info@tepli.ru"
+  }
+]
+, "network":
+[
+  {
+    "id" : 1,
+    "name" : "Facebook",
+    "ref" :  "http://www.facebook.com" 
+  }, 
+  {
+    "id" : 2,
+    "name" : "Youtube",
+    "ref" : "http://www.youtube.com"
+  },
+  {
+    "id": 3,
+    "ref": "http://www.instagram.com",
+    "name": "Instagram"
+  },
+  {
+    "id": 4,
+    "ref": "http://www.vk.com",
+    "name": "Vk"
+  },
+  {
+    "id": 5,
+    "ref": "http://www.whatsapp.com",
+    "name": "Whatsapp"
+  },
+  {
+    "id": 6,
+    "ref": "http://www.twitter.com",
+    "name": "Twitter"
+  }
+]
+}');
 
 INSERT INTO main_page_images (img) VALUES ('d69ab00a-fe84-4425-acdd-e0794d1203c7.jpg');
 INSERT INTO main_page_images (img) VALUES ('2563d3e1-b2f7-4a6d-88e9-0bd6a83cfbc2.jpg');

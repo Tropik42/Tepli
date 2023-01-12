@@ -50,6 +50,7 @@
         "jsx-a11y/label-has-associated-control": "off",
         "react/jsx-no-useless-fragment": "off",
         "jsx-a11y/alt-text": "off",
-        "max-len": "off"
+        "max-len": "off",
+        "react/no-array-index-key": "off"
     }
 }
