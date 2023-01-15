@@ -39,11 +39,7 @@ const App = observer(() => {
                 <Route path="/news/:id" element={<SingleNews />} />
                 <Route
                     path="/catalog"
-                    element={(
-                        <RequireAuth>
-                            <Catalog />
-                        </RequireAuth>
-                    )}
+                    element={<Catalog />}
                 />
                 <Route path="/price" element={<Price />} />
                 <Route path="/contacts" element={<Contacts />} />
