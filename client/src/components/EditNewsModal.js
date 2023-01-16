@@ -14,9 +14,11 @@ const EditNewsModal = ({news}) => {
     const updateNews = async (e) => {
         e.preventDefault();
         try {
-            const editedNews = {img, title, body};
-            console.log(editedNews);
-            const result = await instance.put(`/news/${news.newsId}`, editedNews);
+            const formData = new FormData();
+            formData.append('img', img);
+            formData.append('title', title);
+            formData.append('body', body);
+            const result = await instance.put(`/news/${news.newsId}`, formData);
             console.log(result);
         } catch (err) {
             console.error(err.message);

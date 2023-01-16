@@ -57,9 +57,12 @@ const createNews = async (req, res) => {
 const updateNews = async (req, res) => {
     try {
         const {id} = req.params;
-        const {title, body, img} = req.body;
+        const {img} = req.files;
+        const fileName = `${uuid.v4()}.jpg`;
+        img.mv(path.resolve(__dirname, '..', 'static', fileName));
+        const {title, body} = req.body;
         await pool.query(queries.updateNews, [
-            title, body, id, img,
+            title, body, id, fileName,
         ]);
         res.json(`Новость №${id} была обновлена`);
     } catch (err) {
