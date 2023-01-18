@@ -3,10 +3,10 @@ const queries = require('../queries/contacts');
 
 const getAllContacts = async (req, res) => {
     try {
-        const Contacts = await pool.query(
+        const {rows} = await pool.query(
             queries.getContacts,
         );
-        res.json(Contacts.rows);
+        res.json(rows);
     } catch (err) {
         console.error(err.message);
     }
