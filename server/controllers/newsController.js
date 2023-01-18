@@ -3,10 +3,10 @@ const queries = require('../queries/news');
 
 const getAllNews = async (req, res) => {
     try {
-        const allNews = await pool.query(
+        const {rows} = await pool.query(
             queries.getAllNews,
         );
-        res.json(allNews.rows);
+        res.json(rows);
     } catch (err) {
         console.error(err.message);
     }
@@ -15,10 +15,10 @@ const getAllNews = async (req, res) => {
 const getOneNews = async (req, res) => {
     try {
         const {id} = req.params;
-        const singleNews = await pool.query(queries.getOneNews, [
+        const {rows} = await pool.query(queries.getOneNews, [
             id,
         ]);
-        res.json(singleNews.rows[0]);
+        res.json(rows[0]);
     } catch (err) {
         console.error(err.message);
     }
@@ -27,10 +27,10 @@ const getOneNews = async (req, res) => {
 const createNews = async (req, res) => {
     try {
         const {title, body} = req.body;
-        const createNews = await pool.query(queries.createNews, [
+        const {rows} = await pool.query(queries.createNews, [
             title, body,
         ]);
-        res.json(createNews.rows);
+        res.json(rows);
     } catch (err) {
         console.error(err.message);
     }

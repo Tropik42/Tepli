@@ -5,10 +5,10 @@ const queries = require('../queries/price');
 
 const getPrice = async (req, res) => {
     try {
-        const price = await pool.query(
+        const {rows} = await pool.query(
             queries.getAllPrice,
         );
-        return res.json(price.rows);
+        return res.json(rows);
     } catch (err) {
         console.error(err.message);
     }
@@ -17,11 +17,10 @@ const getPrice = async (req, res) => {
 const getOneFilePrice = async (req, res) => {
     try {
         const {id} = req.params;
-        const singleFile = await pool.query(queries.getOneFilePrice, [
+        const {rows} = await pool.query(queries.getOneFilePrice, [
             id,
         ]);
-        console.log(singleFile);
-        return (res.json(singleFile.rows[0]));
+        return (res.json(rows[0]));
     } catch (err) {
         console.error(err.message);
     }
@@ -30,10 +29,10 @@ const updateFilePrice = async (req, res) => {
     try {
         const {id} = req.params;
         const {pricePath} = req.files;
-        const singleFile = await pool.query(queries.getOneFilePrice, [
+        const {rows} = await pool.query(queries.getOneFilePrice, [
             id,
         ]);
-        const fileDelName = singleFile.rows[0].pricePath;
+        const fileDelName = rows[0].pricePath;
         await fs.unlink(path.resolve(__dirname, '..', 'static', fileDelName), (err) => {
             if (err) {
                 console.log(err);
