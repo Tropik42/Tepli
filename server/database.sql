@@ -6,8 +6,9 @@ CREATE TABLE users(
   ,user_password   VARCHAR(255)         NOT NULL
   ,is_admin        BOOLEAN              NOT NULL DEFAULT false
 );
-COMMENT ON TABLE users IS 'Таблица с пользователями';
-COMMENT ON COLUMN users.user_id IS 'Индефикатор пользователя';
+
+COMMENT ON TABLE users IS 'Пользователи';
+COMMENT ON COLUMN users.user_id IS 'Идентификатор пользователя';
 COMMENT ON COLUMN users.user_name IS 'Имя пользователя';
 COMMENT ON COLUMN users.user_password IS 'Пароль пользователя';
 COMMENT ON COLUMN users.is_admin IS 'Флаг, является ли пользователь администратором';
@@ -19,21 +20,23 @@ CREATE TABLE news(
   ,create_datetime TIMESTAMPTZ          DEFAULT NOW()
   ,state           TEXT                 DEFAULT 'enabled'
 );
-COMMENT ON TABLE news IS 'Таблица новостей';
-COMMENT ON COLUMN news.news_id IS 'Индефикатор новости';
+
+COMMENT ON TABLE news IS 'Новости';
+COMMENT ON COLUMN news.news_id IS 'Идентификатор новости';
 COMMENT ON COLUMN news.title IS 'Заголовок новости';
-COMMENT ON COLUMN news.body IS 'Описание новости';
+COMMENT ON COLUMN news.body IS 'Содержание новости';
 COMMENT ON COLUMN news.create_datetime IS 'Дата и время создания новости';
-COMMENT ON COLUMN news.state IS 'Состояние отображения новости на странице';
+COMMENT ON COLUMN news.state IS 'Статус новости';
 
 CREATE TABLE images(
     image_id       SERIAL PRIMARY KEY
    ,news_id        INT REFERENCES news (news_id)
    ,img            VARCHAR(255)         NOT NULL
 );
-COMMENT ON TABLE images IS 'Таблица картинок для новостей';
-COMMENT ON COLUMN images.image_id  IS 'Индефикатор картинки';
-COMMENT ON COLUMN images.news_id  IS 'Внешний ключ для таблицы news ';
+
+COMMENT ON TABLE images IS 'Картинки для новостей';
+COMMENT ON COLUMN images.image_id  IS 'Идентификатор картинки';
+COMMENT ON COLUMN images.news_id  IS 'Идентификатор новости';
 COMMENT ON COLUMN images.img IS 'Имя картинки';
 
 CREATE TABLE main_page_images(
@@ -41,8 +44,9 @@ CREATE TABLE main_page_images(
    ,img             VARCHAR(255)         NOT NULL
    ,create_datetime TIMESTAMPTZ          DEFAULT NOW()
 );
-COMMENT ON TABLE main_page_images IS 'Таблица картинок для главной страницы';
-COMMENT ON COLUMN main_page_images.image_id  IS 'Индефикатор картинки';
+
+COMMENT ON TABLE main_page_images IS 'Картинки для главной страницы';
+COMMENT ON COLUMN main_page_images.image_id  IS 'Идентификатор картинки';
 COMMENT ON COLUMN main_page_images.img  IS 'Имя картинки';
 COMMENT ON COLUMN main_page_images.create_datetime IS 'Дата и время создания картинки';
 
@@ -50,26 +54,29 @@ CREATE TABLE about(
      about_id       SERIAL PRIMARY KEY
     ,body           TEXT                NOT NULL
 );
-COMMENT ON TABLE about IS 'Таблица информации о компании';
-COMMENT ON COLUMN about.about_id  IS 'Индефикатор информации о компании';
-COMMENT ON COLUMN about.body IS 'Описание';
+
+COMMENT ON TABLE about IS 'Информация о компании';
+COMMENT ON COLUMN about.about_id  IS 'Идентификатор абзаца информации о компании';
+COMMENT ON COLUMN about.body IS 'Информация о компании';
 
 CREATE TABLE price(
      price_id       SERIAL PRIMARY KEY
     ,price_name      VARCHAR(255)       
     ,price_path      VARCHAR(255)       NOT NULL
 );
-COMMENT ON TABLE price IS 'Таблица цен';
-COMMENT ON COLUMN price.price_name  IS 'Название файла';
+
+COMMENT ON TABLE price IS 'Цены';
+COMMENT ON COLUMN price.price_name  IS 'Наименование ссылки';
 COMMENT ON COLUMN price.price_path IS 'Имя файла';
 
-CREATE TABLE contacts(
+CREATE TABLE contacts (
   cont_id  SERIAL PRIMARY KEY
-  ,data jsonb
+  ,data JSONB
 );
-COMMENT ON TABLE contacts IS 'Таблица с контактной информацией';
-COMMENT ON COLUMN contacts.cont_id  IS 'Индефикатор контактов';
-COMMENT ON COLUMN contacts.data IS 'информация о контактах в формате json';
+
+COMMENT ON TABLE contacts IS 'Контакты';
+COMMENT ON COLUMN contacts.cont_id  IS 'Идентификатор контактов';
+COMMENT ON COLUMN contacts.data IS 'Информация о контактах в формате json';
 
 INSERT INTO users (user_name, user_password) VALUES ('user', 'userpassword');
 INSERT INTO users (
