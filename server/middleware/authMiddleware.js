@@ -11,6 +11,6 @@ module.exports = function (req, res, next) {
         req.user = verify.user;
         next();
     } catch (err) {
-        res.status(401).json({massage: 'Токен недействителен'});
+        return res.status(401).json({massage: 'Токен недействителен'});
     }
 };

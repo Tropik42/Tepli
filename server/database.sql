@@ -79,16 +79,7 @@ COMMENT ON COLUMN contacts.cont_id  IS 'Идентификатор контак�
 COMMENT ON COLUMN contacts.data IS 'Информация о контактах в формате json';
 
 INSERT INTO users (user_name, user_password) VALUES ('user', 'userpassword');
-INSERT INTO users (
-  user_name,
-  user_password,
-  is_admin
-)
-VALUES (
- 'admin',
- '$2b$05$mlLEzfTMMUyBk85uUQNkfOHPo.M2CG9xIPuXybQaSVQPgKsgDApn2',
-  true
-);
+
 
 INSERT INTO news (title, body) VALUES ('proverka','proverkakartinok');
 INSERT INTO images (news_id, img) VALUES ('1','pathone');

@@ -8,8 +8,8 @@ import {login} from '../http/userApi';
 import {AuthContext} from '../hoc/AuthProvider';
 
 const Auth = observer(() => {
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const goPage = () => navigate(fromPage);
     const location = useLocation();
@@ -27,7 +27,6 @@ const Auth = observer(() => {
             //     user.setIsAdmin(true);
             // }
             goPage();
-            console.log(data);
             user.setIsAdmin(data.user.isAdmin);
             user.setUser(user);
             user.setIsAuth(true);
