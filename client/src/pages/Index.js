@@ -12,9 +12,11 @@ const Index = () => (
             <div className="container">
                 <div className="col-lg-3">
                     <div className="hidden-md hidden-sm hidden-xs">
-                        <a href="#"><h3 className="mt--5">НОВОСТИ</h3></a>
+                        <a href="#"><h3 className="mt--5 main-pad">НОВОСТИ</h3></a>
                         <hr />
-                        <SideBarComponent />
+                        <div className="back">
+                            <SideBarComponent />
+                        </div>
                     </div>
                 </div>
                 <div className="col-lg-9">
@@ -24,7 +26,7 @@ const Index = () => (
                         data-ride="carousel"
                         data-interval="10000"
                     >
-                        <ol className="carousel-indicators">
+                        <ol className="carousel-indicators ">
                             <li data-target="#carousel-example-generic" data-slide-to="0" className="active" />
                             <li data-target="#carousel-example-generic" data-slide-to="1" />
                             <li data-target="#carousel-example-generic" data-slide-to="2" />
@@ -50,26 +52,28 @@ const Index = () => (
                             </div>
                                 ...
                         </div>
-                        <a className="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <a className="left carousel-control bor-main" href="#carousel-example-generic" data-slide="prev">
                             <span className="glyphicon glyphicon-chevron-left" />
                         </a>
-                        <a className="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <a className="right carousel-control bor-main" href="#carousel-example-generic" data-slide="next">
                             <span className="glyphicon glyphicon-chevron-right" />
                         </a>
                     </div>
-
-                    <h2 className="h2_header">О КОМПАНИИ</h2>
                     <hr />
-                    <div className="about-company">
-                        <p className="text-justify">
-                            <AboutMain />
-                        </p>
-                    </div>
-                    <div className="learn_more">
-                        <p className="text-right"><NavLink to="/About">Узнать о компании больше</NavLink></p>
+                    <h2 className="h2_header">О КОМПАНИИ</h2>
+                    <div className="back">
+                        <hr />
+                        <div className="back">
+                            <p className="text-justify">
+                                <AboutMain />
+                            </p>
+                            <div className="learn_more">
+                                <p className="text-right"><NavLink to="/About">Узнать о компании больше</NavLink></p>
+                            </div>
+                        </div>
                     </div>
                     <div className="margin-5" />
-                    <div className="row">
+                    <div className="row back">
                         <EditMainImg />
                         <Images />
                     </div>

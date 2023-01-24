@@ -23,16 +23,16 @@ const EditMainImg = observer(() => {
     return (
         <React.Fragment>
             <Container>
-                <div className="container">
+                <div>
                     {user.isAdmin ? (
-                        <Button
+                        <button
                             type="button"
-                            className="btn btn-info btn-lg"
+                            className="btn btn-info btn-lg web-button"
                             data-toggle="modal"
                             data-target="#myModal"
                         >
                 Изменить
-                        </Button>
+                        </button>
                     ) : (<div />)}
 
                     <div className="modal fade" id="myModal" role="dialog">

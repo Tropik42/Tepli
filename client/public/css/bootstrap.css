@@ -1103,7 +1103,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #23527c;
+  color: #000000;
   text-decoration: underline;
 }
 a:focus {
@@ -3967,6 +3967,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   display: block;
   padding: 10px 15px;
+  padding-right: 30px;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -3991,7 +3992,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav .nav-divider {
   height: 1px;
-  margin: 9px 0;
+  margin: 20px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }

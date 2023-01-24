@@ -60,7 +60,7 @@ a, a:hover {
 }
 
 .phone h3 {
-	margin-top: 10px;
+	margin: 0px;
 }
 
 .row>.dealer {
@@ -122,6 +122,7 @@ body {
 .h2_header {
 	color: black;
 	background-color: #35c6f5;
+	padding-left: 10px;
 }
 
 /*Картинки на странице новостей трансформируются при наведении*/
@@ -159,13 +160,16 @@ body {
 li a {
     color: #35c6f5;
     font-size: 120%;
-    padding-bottom: 0px !important;
+    padding-bottom: 5px !important;
+	padding-top: 5px !important;
+	
  }
 
 li a:hover {
     color: #000 !important;
     font-size: 120%;
-    padding-bottom: 0px !important;   
+    padding-bottom: 5px !important; 
+	padding-top: 5px !important;  
  }
  /*Цвет ссылок на соцсети*/
  .link {
@@ -274,6 +278,7 @@ footer a:hover {
 		}
 		.header-dealer {
 			margin-top: 0 !important;
+			padding-right: 0;
 		}
 	/*МЕНЮ НАВИГАЦИИ*/
 		/*Оформление кнопки "Меню" во всю ширину, белого цвета*/
@@ -396,7 +401,7 @@ footer a:hover {
 			letter-spacing: 2px;
 		}
 		.nav-pills>li {
-		float: none;
+		float: none;		
 		}
 		/*Оформление выпадающего меню*/
 		.navbar-collapse {

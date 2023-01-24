@@ -61,7 +61,7 @@
 }
 
 .navbarButton{
-    margin-left: 21rem;
+    margin-left: 13rem;
 }
 .marginImg{
     margin-bottom: 1rem;
@@ -90,4 +90,48 @@
     padding: 0;
     margin: 0;
     overflow: hidden;
+}
+.web-button {
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 1px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+    margin-bottom: 10px;
+  } 
+  .web-button:hover { background: #35c6f5; }
+  .web-button:active { background: white; }
+
+.mar {
+    margin: 0;
+}
+.hr-main-top {
+    margin: 5px 20%;
+    margin-bottom: 15px;
+}
+.hr-main-bot {
+    margin-top: 0px;
+    margin-left: 2.8%;
+}
+.nav-pad-main {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-right: 5px;
+}
+.main-pad {
+    padding-left: 5px;
+}
+.back {
+    background-color: rgb(46, 46, 46);
+    box-shadow: 2px 2px 2px rgb(10, 10, 10);    
+}
+.bor-main {
+    border-radius: 8%; 
 }

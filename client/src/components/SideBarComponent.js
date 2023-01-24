@@ -18,11 +18,11 @@ const SideBarComponent = () => {
         <div>
             {(allNews.slice(0, 5).map((news) => (
                 <React.Fragment key={news.newsId}>
-                    <div className="wrapper">
+                    <div className="back">
                         <Link to={`/news/${news.newsId}`}><h4>{news.title}</h4></Link>
-                        <p id="dateSpan">{news.newsDate}</p>
                         <div className="text-justify, sideBarNewsElement">{`${news.body.substring(0, 100)}...`}</div>
-                        <hr />
+                        <p id="dateSpan">{news.newsDate}</p>
+                        <hr className="hr-main-top" />
                     </div>
                 </React.Fragment>
             )))}
