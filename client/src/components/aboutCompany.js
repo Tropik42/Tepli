@@ -24,9 +24,9 @@ const AboutCompany = observer(() => {
         <React.Fragment>
             {allAbout.slice(0).reverse().map((about) => (
                 <div key={about.aboutId}>
-                    <h2>
+                    <p className="text-justify">
                         {about.body}
-                    </h2>
+                    </p>
                     {user.isAdmin ? (<div><EditAbout about={about} /></div>) : (<div />)}
                 </div>
             ))}

@@ -25,7 +25,7 @@ const App = observer(() => {
             user.setIsAdmin(token.user.isAdmin);
         }).finally(() => setLoading(false));
     }, []);
-    if (loading) { return console.log('загрузка'); }
+    if (loading) { return false; }
     return (
         <div className="container pt-4">
             <Routes>

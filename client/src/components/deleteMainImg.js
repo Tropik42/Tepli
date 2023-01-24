@@ -6,8 +6,7 @@ const DeleteImg = ({image}) => {
     const delImg = async (e) => {
         e.preventDefault();
         try {
-            const response = await instance.delete(`/${image.imageId}`);
-            console.log(response);
+            await instance.delete(`/${image.imageId}`);
         } catch (err) {
             console.error(err.message);
         }

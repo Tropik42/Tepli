@@ -15,7 +15,7 @@ module.exports = function (isadmin) {
             }
             next();
         } catch (err) {
-            res.status(401).json('Пользователь не авторизован');
+            return res.status(401).json('Пользователь не авторизован');
         }
     };
 };
