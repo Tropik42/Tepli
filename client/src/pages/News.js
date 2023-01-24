@@ -13,12 +13,11 @@ const News = observer(() => {
         e.preventDefault();
         try {
             const postNews = {title, body};
-            const result = await instance.post('/news', postNews);
-            console.log(result);
+            await instance.post('/news', postNews);
             setTitle('');
             setBody('');
         } catch (e) {
-            console.log(e.message());
+            console.error(e.message());
         }
     };
 
