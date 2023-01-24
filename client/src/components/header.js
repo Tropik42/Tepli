@@ -8,7 +8,7 @@ const Header = () => (
         <div>
             <div className="navbar-header header">
                 <div className="container row">
-                    <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 logo">
+                    <div className="col-lg-4 col-md-5 col-sm-12 col-xs-12 logo">
                         <a href="index.html">
                             <img src="/img/logo.png" className="logo_img" alt="" />
                         </a>
@@ -16,15 +16,15 @@ const Header = () => (
                     <div className="phone col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <div className="row">
                             <div className="col-lg-12 col-sm-12 col-xs-6 phone-header text-center">
-                                <h4>НАШ ТЕЛЕФОН:</h4>
+                                <h4>Телефон:</h4>
                             </div>
-                            <div className="col-lg-12 col-sm-12 col-xs-6 header-number ska text-center">
+                            <div className="col-lg-12 col-sm-12 col-xs-6  text-center mar">
                                 <h3>(499) 128 94 91</h3>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-lg-12 col-sm-12 col-xs-6 phone-header text-center">
-                                <h4>ПОЧТА:</h4>
+                                <h4>Почта:</h4>
                             </div>
                             <div className="col-lg-12 col-sm-12 col-xs-6 header-number text-center">
                                 <h3>info@tepli.ru</h3>
@@ -35,7 +35,7 @@ const Header = () => (
                         <div className="of-partner col-sm-12">
                             <h4>ОФИЦИАЛЬНЫЙ ПАРТНЕР</h4>
                         </div>
-                        <div className="partner-name text-center col-sm-12">
+                        <div className="partner-name text-center col-sm-10">
                             <a href="https://www.deltalight.com/ru">
                                 <img src="/img/logo_deltalight.png" className="logo_del" alt="" />
                             </a>
@@ -55,10 +55,11 @@ const Header = () => (
                     </button>
 
                 </div>
+                <hr className="hr-main-top" />
             </div>
+            <Navbar />
+            <hr className="hr-main-bot" />
         </div>
-        <Navbar />
-
     </div>
 );
 export {Header};

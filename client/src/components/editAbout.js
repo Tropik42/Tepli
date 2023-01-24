@@ -16,14 +16,14 @@ const EditAbout = ({about}) => {
     return (
         <Container>
             <div className="container">
-                <Button
+                <button
                     type="button"
-                    className="btn btn-info btn-lg pull-right"
+                    className="web-button btn-lg pull-right"
                     data-toggle="modal"
                     data-target={`#id${about.aboutId}`}
                 >
             Изменить
-                </Button>
+                </button>
                 <div className="modal fade" id={`id${about.aboutId}`} role="dialog">
                     <div className="modal-dialog">
                         <div className="modal-content">

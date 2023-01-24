@@ -15,12 +15,12 @@ const Navbar = observer(() => {
         localStorage.removeItem('token');
     };
     return (
-        <div className="hello">
-            <div className="container">
+        <div className="container">
+            <div>
                 {user.isAuth
                     ? (
                         <nav>
-                            <ul className="nav nav-pills">
+                            <ul className="nav nav-pills ">
                                 <li><Link to="/">Главная</Link></li>
                                 <li><Link to="/about">О компании</Link></li>
                                 <li><Link to="/news">Новости</Link></li>
@@ -28,7 +28,7 @@ const Navbar = observer(() => {
                                 <li><Link to="/price">Скачать прайс-лист</Link></li>
                                 <li><Link to="/contacts">Контакты</Link></li>
                                 <li><Button
-                                    className="ueb-button  navbarButton"
+                                    className="web-button  navbarButton"
                                     onClick={() => logOut()}
                                 >
                                     выйти
@@ -47,7 +47,7 @@ const Navbar = observer(() => {
                                 <li><Link to="/price">Скачать прайс-лист</Link></li>
                                 <li><Link to="/contacts">Контакты</Link></li>
                                 <li><Button
-                                    className="ueb-button navbarButton"
+                                    className="web-button navbarButton"
                                     onClick={() => goPage()}
                                 >
                                     войти
