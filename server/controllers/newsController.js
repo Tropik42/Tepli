@@ -42,9 +42,13 @@ const getOneNews = async (req, res) => {
 const createNews = async (req, res) => {
     try {
         const {title, body} = req.body;
-        const {img} = req.files;
-        const fileName = `${uuid.v4()}.jpg`;
-        img.mv(path.resolve(__dirname, '..', 'static', fileName));
+        const fileName = [];
+        req.files.img.forEach((el) => {
+            el = `${uuid.v4()}.jpg`;
+            // el.mv(path.resolve(__dirname, '..', 'static', el));
+            fileName.push(el);
+        });
+        console.log('FILENAME', Array.isArray(fileName), fileName);
         const createNews = await pool.query(queries.createNews, [
             title, body, fileName,
         ]);
