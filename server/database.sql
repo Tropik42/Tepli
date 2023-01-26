@@ -18,7 +18,7 @@ CREATE TABLE news(
 CREATE TABLE images(
     image_id       SERIAL PRIMARY KEY
    ,news_id        INT REFERENCES news (news_id)
-   ,img            VARCHAR(255)
+   ,img            JSONB
 );
 
 CREATE TABLE main_page_images(

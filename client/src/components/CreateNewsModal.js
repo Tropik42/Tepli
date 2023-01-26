@@ -8,7 +8,7 @@ const CreateNewsModal = () => {
     const [img, setImg] = useState(null);
 
     const selectImg = (e) => {
-        setImg(e.target.files[0]);
+        setImg(e.target.files);
     };
 
     const onSubmitForm = async (e) => {
@@ -72,6 +72,7 @@ const CreateNewsModal = () => {
                                     <div className="mb-3">
                                         <label className="col-form-label" htmlFor="title-name">Вставить иллюстрацию</label>
                                         <input
+                                            multiple
                                             type="file"
                                             name="file"
                                             accept="image/*, .png, .jpg"

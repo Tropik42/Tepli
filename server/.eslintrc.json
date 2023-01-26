@@ -11,6 +11,7 @@
         "sourceType": "module"
     },
     "rules": {
+        "no-param-reassign":  "off",
         "object-curly-spacing": ["error", "never"],
         "no-console": "off",
         "no-shadow": "off",

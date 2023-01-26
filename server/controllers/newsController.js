@@ -13,7 +13,7 @@ const getAllNews = async (req, res) => {
             if (index === -1) {
                 acc.push({
                     ...el,
-                    img: [el.img],
+                    img: el.img,
                 });
             } else {
                 acc[index].img.push(el.img);
@@ -42,15 +42,24 @@ const getOneNews = async (req, res) => {
 const createNews = async (req, res) => {
     try {
         const {title, body} = req.body;
-        const fileName = [];
-        req.files.img.forEach((el) => {
-            el = `${uuid.v4()}.jpg`;
-            // el.mv(path.resolve(__dirname, '..', 'static', el));
-            fileName.push(el);
-        });
-        console.log('FILENAME', Array.isArray(fileName), fileName);
+        const img = req.files;
+        const file = () => {
+            if (req.files.img.length > 1) {
+                const fileName = [];
+                img.img.forEach((el) => {
+                    const element = el;
+                    el = `${uuid.v4()}.jpg`;
+                    element.mv(path.resolve(__dirname, '..', 'static', el));
+                    fileName.push(el);
+                });
+                return fileName;
+            }
+            const fileName = `${uuid.v4()}.jpg`;
+            img.img.mv(path.resolve(__dirname, '..', 'static', fileName));
+            return [fileName];
+        };
         const createNews = await pool.query(queries.createNews, [
-            title, body, fileName,
+            title, body, JSON.stringify(file()),
         ]);
         return res.json(createNews);
     } catch (err) {
