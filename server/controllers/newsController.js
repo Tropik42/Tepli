@@ -70,14 +70,27 @@ const createNews = async (req, res) => {
 const updateNews = async (req, res) => {
     try {
         const {id} = req.params;
-        const {img} = req.files;
-        const fileName = `${uuid.v4()}.jpg`;
-        img.mv(path.resolve(__dirname, '..', 'static', fileName));
         const {title, body} = req.body;
-        await pool.query(queries.updateNews, [
-            title, body, id, fileName,
+        const img = req.files;
+        const file = () => {
+            if (req.files.img.length > 1) {
+                const fileName = [];
+                img.img.forEach((el) => {
+                    const element = el;
+                    el = `${uuid.v4()}.jpg`;
+                    element.mv(path.resolve(__dirname, '..', 'static', el));
+                    fileName.push(el);
+                });
+                return fileName;
+            }
+            const fileName = `${uuid.v4()}.jpg`;
+            img.img.mv(path.resolve(__dirname, '..', 'static', fileName));
+            return [fileName];
+        };
+        const updatedNews = await pool.query(queries.updateNews, [
+            title, body, id, JSON.stringify(file()),
         ]);
-        res.json(`Новость №${id} была обновлена`);
+        return res.json(updatedNews);
     } catch (err) {
         console.error(err.message);
     }

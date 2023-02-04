@@ -5,19 +5,20 @@ import instance from '../axios/axiosController';
 const EditNewsModal = ({news}) => {
     const [title, setTitle] = useState(news.title);
     const [body, setBody] = useState(news.body);
-    const [img, setImg] = useState(null);
+    const [img, setImg] = useState([]);
 
     const selectImg = (e) => {
-        setImg(e.target.files[0]);
+        setImg(e.target.files);
     };
-
     const updateNews = async (e) => {
         e.preventDefault();
         try {
             const formData = new FormData();
-            formData.append('img', img);
             formData.append('title', title);
             formData.append('body', body);
+            for (let i = 0; i < img.length; i++) {
+                formData.append('img', ...img);
+            }
             const result = await instance.put(`/news/${news.newsId}`, formData);
             console.log(result);
         } catch (err) {
@@ -73,6 +74,7 @@ const EditNewsModal = ({news}) => {
                                 <div className="mb-3">
                                     <label className="col-form-label" htmlFor="title-name">Вставить иллюстрацию</label>
                                     <input
+                                        multiple
                                         type="file"
                                         name="file"
                                         accept="image/*, .png, .jpg"

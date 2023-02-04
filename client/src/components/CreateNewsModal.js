@@ -5,19 +5,20 @@ import instance from '../axios/axiosController';
 const CreateNewsModal = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
-    const [img, setImg] = useState(null);
+    const [img, setImg] = useState([]);
 
     const selectImg = (e) => {
         setImg(e.target.files);
     };
-
     const onSubmitForm = async (e) => {
         e.preventDefault();
         try {
             const formData = new FormData();
-            formData.append('img', img);
             formData.append('title', title);
             formData.append('body', body);
+            for (let i = 0; i < img.length; i++) {
+                formData.append('img', ...img);
+            }
             const result = await instance.post('/news', formData);
             console.log(result);
         } catch (e) {
