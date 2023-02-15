@@ -17,10 +17,9 @@ const EditNewsModal = ({news}) => {
             formData.append('title', title);
             formData.append('body', body);
             for (let i = 0; i < img.length; i++) {
-                formData.append('img', ...img);
+                formData.append('img', img[i]);
             }
-            const result = await instance.put(`/news/${news.newsId}`, formData);
-            console.log(result);
+            await instance.put(`/news/${news.newsId}`, formData);
         } catch (err) {
             console.error(err.message);
         }

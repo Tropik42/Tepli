@@ -1,5 +1,6 @@
 const uuid = require('uuid');
 const path = require('path');
+const fs = require('fs');
 const pool = require('../db');
 const queries = require('../queries/news');
 
@@ -72,6 +73,20 @@ const updateNews = async (req, res) => {
         const {id} = req.params;
         const {title, body} = req.body;
         const img = req.files;
+        const singleImg = await pool.query(queries.getOneNews, [
+            id,
+        ]);
+        if (singleImg.rows[0].img) {
+            singleImg.rows[0].img.map(async (el) => {
+                await fs.unlink(path.resolve(__dirname, '..', 'static', el), (err) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log(`Файл "${el}" удалён`);
+                    }
+                });
+            });
+        }
         const file = () => {
             if (req.files.img.length > 1) {
                 const fileName = [];

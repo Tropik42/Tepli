@@ -17,10 +17,9 @@ const CreateNewsModal = () => {
             formData.append('title', title);
             formData.append('body', body);
             for (let i = 0; i < img.length; i++) {
-                formData.append('img', ...img);
+                formData.append('img', img[i]);
             }
-            const result = await instance.post('/news', formData);
-            console.log(result);
+            await instance.post('/news', formData);
         } catch (e) {
             console.log(e.message());
         }
