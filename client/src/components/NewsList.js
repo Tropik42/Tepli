@@ -16,7 +16,7 @@ const NewsList = observer(() => {
 
     useEffect(() => {
         getNews();
-    });
+    }, []);
 
     return (
         <React.Fragment>
@@ -27,13 +27,15 @@ const NewsList = observer(() => {
                             <div className="row news">
                                 <h2 className="h2_header">{news.title}</h2>
                                 <hr />
-                                <div className="col-lg-3 col-md-2 text-center">
-                                    <img
-                                        className="img-thumbnail img-responsive pull-left"
-                                        src="img/lumb2.jpg"
-                                        alt="Безумный Макс"
-                                    />
-                                </div>
+                                {news.img.map((i) => (
+                                    <div className="col-lg-3 col-md-2 text-center">
+                                        <img
+                                            className="img-thumbnail img-responsive pull-left"
+                                            src={process.env.REACT_APP_URL + i}
+                                            alt="Безумный Макс"
+                                        />
+                                    </div>
+                                ))}
                                 <div className="col-lg-9 col-md-10">
                                     <p className="text-justify">{news.body}</p>
                                 </div>

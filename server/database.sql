@@ -31,7 +31,7 @@ COMMENT ON COLUMN news.state IS 'Статус новости';
 CREATE TABLE images(
     image_id       SERIAL PRIMARY KEY
    ,news_id        INT REFERENCES news (news_id)
-   ,img            VARCHAR(255)         NOT NULL
+   ,img            JSONB
 );
 
 COMMENT ON TABLE images IS 'Картинки для новостей';
@@ -41,7 +41,7 @@ COMMENT ON COLUMN images.img IS 'Имя картинки';
 
 CREATE TABLE main_page_images(
     image_id        SERIAL PRIMARY KEY
-   ,img             VARCHAR(255)         NOT NULL
+   ,img             VARCHAR(255)
    ,create_datetime TIMESTAMPTZ          DEFAULT NOW()
 );
 

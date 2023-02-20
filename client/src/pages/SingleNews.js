@@ -29,7 +29,7 @@ const SingleNews = observer(() => {
                 <p className="hello colorite">{singleNews.body}</p>
                 <img
                     className="img-thumbnail img-responsive pull-left"
-                    src="../img/lumb2.jpg"
+                    src={process.env.REACT_APP_URL + singleNews.img}
                     alt="Безумный Макс"
                 />
                 <div className="pull-left">
@@ -37,6 +37,7 @@ const SingleNews = observer(() => {
                 </div>
             </div>
         </div>
+
     );
 });
 
