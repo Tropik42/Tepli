@@ -33,7 +33,7 @@ const userRegistration = async (req, res) => {
             queries.createUser,
             [username, bcryptPassword],
         );
-        const {userId, isAdmin} = newUser.rows[0];
+        const {userId, isAdmin = false} = newUser.rows[0];
         const token = jwtGenerator(userId, username, isAdmin);
         return res.json({token});
     } catch (err) {
@@ -45,13 +45,13 @@ const userRegistration = async (req, res) => {
 const userLogin = async (req, res) => {
     const {username} = req.body;
     try {
-        const user = await pool.query(queries.userLogin, [
+        const {rows} = await pool.query(queries.userLogin, [
             username,
         ]);
-        if (!user.rows.length) {
+        if (!rows.length) {
             return res.status(401).json('Пользователь не найден');
         }
-        const {userId, isAdmin, userPassword} = user.rows[0];
+        const {userId, isAdmin, userPassword} = rows[0];
         const validPassword = await bcrypt.compare(req.body.password, userPassword);
         if (!validPassword) return res.status(400).send('Неверный пароль');
 
@@ -64,7 +64,7 @@ const userLogin = async (req, res) => {
 };
 
 const userCheck = async (req, res) => {
-    const token = jwtGenerator(req.user.id, req.user.username, req.user.isadmin);
+    const token = jwtGenerator(req.user.id, req.user.username, req.user.isAdmin);
     return res.json({token});
 };
 

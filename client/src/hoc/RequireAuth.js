@@ -6,7 +6,6 @@ import {AuthContext} from './AuthProvider';
 const RequireAuth = observer(({children}) => {
     const location = useLocation();
     const {user} = useContext(AuthContext);
-    console.log(user);
     if (!user.isAuth) {
         return <Navigate to="/Auth" state={{from: location}} />;
     }

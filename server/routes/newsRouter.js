@@ -1,7 +1,6 @@
 const Router = require('express');
 
 const router = Router();
-const checkRole = require('../middleware/checkRoleMiddleware');
 const {
     getAllNews,
     getOneNews,

@@ -11,6 +11,7 @@ const Navbar = observer(() => {
     const logOut = () => {
         user.setUser({});
         user.setIsAuth(false);
+        user.setIsAdmin(false);
         localStorage.removeItem('token');
     };
     return (
