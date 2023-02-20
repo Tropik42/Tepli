@@ -1,14 +1,21 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
+import {observer} from 'mobx-react-lite';
 import {NewsList} from '../components/NewsList';
-import instance from '../axios/axiosController';
 import {CreateNewsModal} from '../components/CreateNewsModal';
+import {AuthContext} from '../hoc/AuthProvider';
 
-const News = () => (
-    <React.Fragment>
+const News = observer(() => {
+    const {user} = useContext(AuthContext);
 
-        <CreateNewsModal />
-        <NewsList />
+    return (
+        <React.Fragment>
+            {user.isAdmin ? (
+                <CreateNewsModal />
+            ) : (<div />)}
+            <NewsList />
 
-    </React.Fragment>
-);
+        </React.Fragment>
+
+    );
+});
 export {News};

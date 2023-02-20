@@ -7,8 +7,7 @@ const EditAbout = ({about}) => {
     const updateBody = async (e) => {
         e.preventDefault();
         try {
-            const response = await instance.put(`/about/${about.aboutId}`, {body});
-            console.log(response);
+            await instance.put(`/about/${about.aboutId}`, {body});
         } catch (err) {
             console.error(err.message);
         }

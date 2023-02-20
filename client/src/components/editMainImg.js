@@ -1,10 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Container, Button} from 'react-bootstrap';
+import {observer} from 'mobx-react-lite';
 import instance from '../axios/axiosController';
 import ImageUpload from './imageUploadMain';
+import {AuthContext} from '../hoc/AuthProvider';
 
-const EditMainImg = () => {
+const EditMainImg = observer(() => {
     const [allImages, setImages] = useState([]);
+    const {user} = useContext(AuthContext);
     const getImages = async () => {
         try {
             const {data} = await instance.get('/');
@@ -15,20 +18,23 @@ const EditMainImg = () => {
     };
     useEffect(() => {
         getImages();
-    });
+    }, []);
 
     return (
         <React.Fragment>
             <Container>
                 <div className="container">
-                    <Button
-                        type="button"
-                        className="btn btn-info btn-lg"
-                        data-toggle="modal"
-                        data-target="#myModal"
-                    >
+                    {user.isAdmin ? (
+                        <Button
+                            type="button"
+                            className="btn btn-info btn-lg"
+                            data-toggle="modal"
+                            data-target="#myModal"
+                        >
                 Изменить
-                    </Button>
+                        </Button>
+                    ) : (<div />)}
+
                     <div className="modal fade" id="myModal" role="dialog">
                         <div className="modal-dialog">
                             <div className="modal-content">
@@ -64,5 +70,5 @@ const EditMainImg = () => {
             </Container>
         </React.Fragment>
     );
-};
+});
 export {EditMainImg};

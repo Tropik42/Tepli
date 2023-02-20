@@ -3,10 +3,10 @@ const queries = require('../queries/about');
 
 const getAbout = async (req, res) => {
     try {
-        const aboutCompany = await pool.query(
+        const {rows} = await pool.query(
             queries.getAbout,
         );
-        res.json(aboutCompany.rows);
+        res.json(rows);
     } catch (err) {
         console.error(err.message);
     }

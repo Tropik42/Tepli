@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
+import {observer} from 'mobx-react-lite';
 import instance from '../axios/axiosController';
 import EditNewsModal from './EditNewsModal';
+import {AuthContext} from '../hoc/AuthProvider';
 
-const NewsList = () => {
+const NewsList = observer(() => {
     const [allNews, setNews] = useState([]);
+    const {user} = useContext(AuthContext);
 
     async function getNews() {
         await instance.get('/news')
@@ -38,7 +41,7 @@ const NewsList = () => {
                                 </div>
                                 <div className="col-lg-12">
                                     <Link to={`/news/${news.newsId}`} className="btn btn-lg btn-primary pull-right">Подробнее</Link>
-                                    <div><EditNewsModal news={news} /></div>
+                                    {user.isAdmin ? (<div><EditNewsModal news={news} /></div>) : (<div />)}
                                 </div>
                             </div>
                             <div className="margin-5" />
@@ -48,5 +51,5 @@ const NewsList = () => {
             ))}
         </React.Fragment>
     );
-};
+});
 export {NewsList};

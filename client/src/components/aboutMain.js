@@ -21,9 +21,9 @@ const AboutMain = () => {
         <React.Fragment>
             {allAbout.slice(0).reverse().map((about) => (
                 <div key={about.aboutId}>
-                    <div>
+                    <p>
                         {about.body}
-                    </div>
+                    </p>
                 </div>
             ))}
         </React.Fragment>
